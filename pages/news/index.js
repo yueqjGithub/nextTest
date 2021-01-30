@@ -14,7 +14,7 @@ export default function News() {
           ids.map(item => {
             return (
               <Link href={`/news/${item}`} key={item}>
-                <a href="#" style={{ display: 'block' }}>{item}</a>
+                <a href={`/news/${item}`} style={{ display: 'block' }} className='text-danger'>{item}</a>
               </Link>
             )
           })

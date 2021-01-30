@@ -1,11 +1,15 @@
-import '../styles/globals.css'
-import MainLayout from '../layouts/mainLayout'
+// import React, {useEffect} from 'react'
+import '../styles/globals.scss'
+// import MainLayout from '../layouts/mainLayout'
 function MyApp({ Component, pageProps, ...props }) {
-  console.log(props)
+  // useEffect(() => {
+  //   const width = document.body.clientWidth
+  //   if (width < 850) {
+  //     window.location.href = 'https://www.baidu.com'
+  //   }
+  // }, [])
   return (
-    <MainLayout>
-      <Component {...pageProps} />
-    </MainLayout>
+    <Component {...pageProps} />
   )
 }
 

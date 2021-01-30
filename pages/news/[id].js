@@ -1,7 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
+import {useRouter} from 'next/router'
 export default function Detail (props) {
   console.log('详情==》',props)
+  const router = useRouter()
+  console.log('route=>',router)
   return (
     <div>
       <Head>
@@ -9,7 +12,7 @@ export default function Detail (props) {
       </Head>
       <main>
         <div>
-          第{props.newsId}则新闻
+          第{router.query.id}则新闻
         </div>
       </main>
     </div>
@@ -17,7 +20,6 @@ export default function Detail (props) {
 }
 
 export async function getStaticProps(params) {
-  console.log(params)
   return {
     props: {
       newsId: params.params.id

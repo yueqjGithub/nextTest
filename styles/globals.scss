@@ -1,0 +1,74 @@
+/* 改变主题色变量 */
+$--color-primary: #2E5BFF;
+
+$--color-warning: #F7B26B;
+
+$--color-danger: #EF3434;
+
+$--color-success: #0ABD9E;
+//-------深色字默认颜色-------
+$--color-font-default: #333333;
+$--color-grey: #cccccc; 
+
+:root{
+  color: $--color-font-default
+}
+
+.rtl{
+  direction: rtl;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.text-primary{
+  color: $--color-primary;
+}
+.text-warning{
+  color: $--color-warning;
+}
+.text-primary{
+  color: $--color-primary;
+}
+.text-success{
+  color: $--color-success;
+}
+.text-danger{
+  color: $--color-danger;
+}
+.text-grey{
+  color: $--color-grey;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+
+.flex-row{display: flex;flex-direction: row;}
+.flex-row-reverse{display: flex;flex-direction: row-reverse;}
+.flex-col{display: flex;flex-direction: column;}
+.flex-col-reverse{display: flex;flex-direction: column-reverse;}
+.flex-jst-start{justify-content: flex-start;}
+.flex-jst-end{justify-content: flex-end;}
+.flex-jst-center{justify-content: center;}
+.flex-ali-start{align-items: flex-start;}
+.flex-ali-end{align-items: flex-end;}
+.flex-ali-center{align-items: center;}
+.flex-ali-base{align-items: baseline;}
+.self-stretch{align-self: stretch;}
+
+.pages{
+  width: 100vw;
+  min-height: 100vh;
+}
+

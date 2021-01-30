@@ -4,8 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &.sage{
+    background: red;
+  }
 }
-
 .main {
   flex: 1;
   display: flex;
