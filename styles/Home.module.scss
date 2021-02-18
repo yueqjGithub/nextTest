@@ -1,7 +1,11 @@
-.swiperItem{
-  height: 160px;
-  color: #fff;
-  line-height: 160px;
-  text-align: center;
-  background: #364d79;
+.swiperOut{
+  width: 100%;
+  position: relative;
+  .swiperItem{
+    height: 160px;
+    color: #fff;
+    line-height: 160px;
+    text-align: center;
+    background: #364d79;
+  }
 }

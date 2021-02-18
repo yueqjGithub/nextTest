@@ -93,6 +93,8 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
 .self-stretch{align-self: stretch;}
 
 .pages{
+  max-width: 2048px;
+  margin: 0 auto;
   width: 100vw;
   min-height: 100vh;
 }

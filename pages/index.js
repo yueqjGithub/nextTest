@@ -12,22 +12,22 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='pages'>
-        <div onClick={() => toAboutHandler()}>{props.name}</div>
-        <a href="/news">新闻列表</a>
-        <Carousel>
-          <div>
-            <h3 className={styles.swiperItem}>1</h3>
-          </div>
-          <div>
-            <h3 className={styles.swiperItem}>2</h3>
-          </div>
-          <div>
-            <h3 className={styles.swiperItem}>3</h3>
-          </div>
-          <div>
-            <h3 className={styles.swiperItem}>4</h3>
-          </div>
-        </Carousel>
+        <div className={styles.swiperOut}>
+          <Carousel effect="fade">
+            <div>
+              <h3 className={styles.swiperItem}>1</h3>
+            </div>
+            <div>
+              <h3 className={styles.swiperItem}>2</h3>
+            </div>
+            <div>
+              <h3 className={styles.swiperItem}>3</h3>
+            </div>
+            <div>
+              <h3 className={styles.swiperItem}>4</h3>
+            </div>
+          </Carousel>
+        </div>
       </main>
     </div>
   )
