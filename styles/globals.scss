@@ -10,8 +10,33 @@ $--color-success: #0ABD9E;
 $--color-font-default: #333333;
 $--color-grey: #cccccc; 
 
+@font-face{
+  font-family: 'title-font';
+  src: url('../public/胡晓波男神体.otf');
+}
+
+@font-face{
+  font-family: 'normal-font';
+  src: url('../public/MicrosoftYaHei-01.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face{
+  font-family: 'normal-font';
+  src: url('../public/MicrosoftYaHeiUI-02.ttf') format('truetype');
+  font-weight: normal;
+}
+
 :root{
-  color: $--color-font-default
+  color: $--color-font-default;
+}
+
+div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
+  font-family: 'normal-font';
+}
+
+.title-font{
+  font-family: 'title-font';
 }
 
 .rtl{

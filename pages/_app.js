@@ -1,4 +1,5 @@
 // import React, {useEffect} from 'react'
+import 'antd/dist/antd.css'
 import '../styles/globals.scss'
 // import MainLayout from '../layouts/mainLayout'
 function MyApp({ Component, pageProps, ...props }) {
