@@ -9,12 +9,12 @@ $--color-success: #0ABD9E;
 //-------深色字默认颜色-------
 $--color-font-default: #333333;
 $--color-grey: #cccccc; 
-
+// -------------标题字体
 @font-face{
   font-family: 'title-font';
   src: url('../public/胡晓波男神体.otf');
 }
-
+// -----------------普通字体---------------------
 @font-face{
   font-family: 'normal-font';
   src: url('../public/MicrosoftYaHei-01.ttf') format('truetype');
