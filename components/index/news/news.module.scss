@@ -1,0 +1,45 @@
+.contain{
+  width: 66%;
+  border-radius: .15rem;
+  overflow: hidden;
+  background-size: 100% 100%;
+  .leftCont{
+    background: rgba(0,0,0,.4);
+    position: relative;
+    .pin{
+      position: absolute;
+      width: .2rem;
+      height: .2rem;
+      background: #313131;
+      right: -0.1rem;
+      transform: rotate(45deg);
+      top: calc(10% - .1rem);
+      transition: top .2s linear;
+    }
+    .leftItem{
+      padding: .15rem;
+      &.curLeft{
+        background: #313131;
+      }
+      &:hover{
+        background: #313131;
+      }
+      .logos{
+        width: .55rem;
+        height: .55rem;
+        margin-right: .1rem;
+      }
+      .introCont{
+        min-width: 1rem;
+        .gameName{
+          font-size: .16rem;
+          color: #fff;
+        }
+        .gameIntro{
+          font-size: .13rem;
+          color: #717173;
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@import '../public/iconfont/iconfont.css';
 /* 改变主题色变量 */
 $--color-primary: #2E5BFF;
 
@@ -57,6 +58,9 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
   text-decoration: none;
   list-style-type: none;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
 
 .full-width{width: 100%;}
 .full-height{height: 100%;}
@@ -108,6 +112,7 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
 .flex-jst-end{justify-content: flex-end;}
 .flex-jst-center{justify-content: center;}
 .flex-jst-btw{justify-content: space-between;}
+.flex-jst-ard{justify-content: space-around;}
 .flex-ali-start{align-items: flex-start;}
 .flex-ali-end{align-items: flex-end;}
 .flex-ali-center{align-items: center;}
