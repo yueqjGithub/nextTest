@@ -128,7 +128,11 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
   padding-top: .2rem;
   padding-bottom: .2rem;
 }
-
+// 超出省略
+.ellipis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 // antd样式修正
 p{
   margin: 0;

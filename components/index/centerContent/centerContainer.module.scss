@@ -1,0 +1,127 @@
+.centerContainer{
+  width: 66%;
+  margin: 0 auto;
+  padding: .5rem 0 .9rem 0;
+  .titBar{
+    width: 100%;
+    margin-bottom: .15rem;
+    .titIcon{
+      width: .06rem;
+      align-self: stretch;
+      background: #bb1d3e;
+      margin-right: .2rem;
+    }
+    .titName{
+      font-size: .22rem;
+      color: #3d3e40;
+      font-weight: 500;
+    }
+  }
+  .contOne{
+    .oneLeft{
+      .gameItem{
+        width: 31%;
+        margin-right: 2%;
+        margin-bottom: .25rem;
+        border-radius: .10rem;
+        background: #fff;
+        overflow: hidden;
+        &:hover{
+          box-shadow: 2px 6px 7px 3px rgba(0,0,0,.1);
+          .gamePost{
+            transform: scale(1.05);
+          }
+        }
+        .gamePost{
+          height: 1.4rem;
+          transition: all .2s linear;
+        }
+        .gameName{
+          margin: .08rem auto .01rem auto;
+          font-size: .22rem;
+        }
+        .gameIntro{
+          text-align: center;
+          padding: .03rem .15rem;
+          height: .3rem;
+          box-sizing: content-box;
+          font-size: .14rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #8b8b8b;
+        }
+        .split{
+          width: 100%;
+          box-sizing: border-box;
+          padding: 0 .1rem;
+          margin-top: .1rem;
+          div{
+            width: 100%;
+            height: 1px;
+            background: #bfbfbf;
+          }
+        }
+        .gameLink{
+          margin: .12rem;
+          a{
+            display: flex;
+            color: #8b8b8b;
+            font-size: .14rem;
+            justify-content: center;
+            align-items: center;
+            padding-left: .15rem;
+            i{
+              font-size: .3rem;
+            }
+          }
+        }
+      }
+    }
+    .oneRight{
+      .packageItem{
+        padding: .1rem .2rem;
+        box-sizing: border-box;
+        border: 1px solid #eaeaea;
+        border-radius: .1rem;
+        margin-bottom: .15rem;
+        background: #fff;
+        &:hover{
+          background: #f1f2f7;
+          .pArrow{
+            color: #ca0114;
+          }
+        }
+        .pArrow{
+          font-size: .3rem;
+          color: #aeaeae;
+        }
+        .pLogo{
+          width: .6rem;
+          height: .6rem;
+          box-shadow: .02rem .02rem .02rem .05rem rgba(0,0,0,.1);
+          margin-right: .18rem;
+        }
+        .pName{
+          font-size: .16rem;
+          color: #5d565e;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .pIntro{
+          font-size: .14rem;
+          color: #8a8a8a;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .pDate{
+          font-size: .14rem;
+          color: #8a8a8a;
+          i{
+            font-size: .16rem;
+            color: #89c184;
+          }
+        }
+      }
+    }
+  }
+}

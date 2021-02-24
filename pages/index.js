@@ -6,6 +6,7 @@ import MainLayout from '../layouts/mainLayout'
 import { httpGet } from '../service/http'
 import urls from '../service/urls'
 import NewsModule from '../components/index/news/news'
+import CenterContainer from '../components/index/centerContent/centerContainer'
 
 export default function Home({info, newsList, ...props}) {
   const swiperRef = useRef()
@@ -53,7 +54,7 @@ export default function Home({info, newsList, ...props}) {
                 }
               </div>
               {/* 新闻模块 */}
-              <NewsModule packageList={info.packages.slice(0, 5)} newsList={newsList}></NewsModule>
+              <NewsModule gameList={info.games.list.slice(0, 5)} newsList={newsList.slice(0, 8)}></NewsModule>
             </div>
             <Carousel effect="slide" dots={false} autoplay={true} ref={swiperRef} beforeChange={(from, to) => setChangeDot(from, to)}>
               {info.banners.map(item => {
@@ -64,6 +65,10 @@ export default function Home({info, newsList, ...props}) {
                 )
               })}
             </Carousel>
+          </div>
+          {/* 中间部分 */}
+          <div className={styles.centerOut}>
+            <CenterContainer gameList={info.games.list} packageList={info.news}></CenterContainer>
           </div>
         </main>
       </MainLayout>

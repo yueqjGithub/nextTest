@@ -1,10 +1,11 @@
+$--split-line: 1px solid #555e63;
 .contain{
   width: 66%;
   border-radius: .15rem;
   overflow: hidden;
   background-size: 100% 100%;
   .leftCont{
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.8);
     position: relative;
     .pin{
       position: absolute;
@@ -32,12 +33,78 @@
       .introCont{
         min-width: 1rem;
         .gameName{
-          font-size: .16rem;
+          font-size: .18rem;
           color: #fff;
         }
         .gameIntro{
-          font-size: .13rem;
-          color: #717173;
+          font-size: .14rem;
+          color: #b6b8b7;
+        }
+      }
+    }
+  }
+  .rightCont{
+    background: rgba(0,0,0,.8);
+    padding: .1rem .15rem;
+    align-self: stretch;
+    width: 40%;
+    box-sizing: border-box;
+    .newsTitBar{
+      border-bottom: $--split-line;
+      padding: .05rem;
+      .leftIcon{
+        width: .04rem;
+        align-self: stretch;
+        border-radius: .02rem;
+        background: #e43f5d;
+      }
+      .leftTit{
+        font-size: .18rem;
+        color: #fff;
+        margin-left: .1rem;
+      }
+      .more{
+        color: #b6b8b7;
+        font-size: .16rem;
+      }
+    }
+    .newsContain{
+      padding: .05rem;
+      .newsItem{
+        padding: .1rem 0;
+        cursor: pointer;
+        &.activeNews{
+          border-bottom: $--split-line;
+          .newsTit{
+            font-size: .24rem;
+            font-weight: 600;
+          }
+          .newsIntro{
+            display: block;
+          }
+          .newsDate{
+            display: none;
+          }
+        }
+        .newsTit{
+          color: #fff;
+          font-size: .16rem;
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .newsDate{
+          color: #b6b8b7;
+          font-size: .14rem;
+        }
+        .newsIntro{
+          display: none;
+          color: #b6b8b7;
+          font-size: .14rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }
