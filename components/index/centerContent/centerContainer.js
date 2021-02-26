@@ -5,7 +5,9 @@ import dayjs from 'dayjs'
 export default function CenterContainer({ gameList, packageList, ...props }) {
   return (
     <div className={styles.centerContainer}>
+      {/* 第一块 */}
       <div className={[styles.contOne, 'flex-row', 'flex-jst-btw', 'flex-ali-start'].join(' ')}>
+        {/* 左侧 */}
         <div className={[styles.oneLeft, 'flex-3'].join(' ')}>
           <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', styles.titBar].join(' ')}>
             <div className={[styles.titIcon]}></div>
@@ -43,7 +45,7 @@ export default function CenterContainer({ gameList, packageList, ...props }) {
             {
               packageList.map((item, idx) => {
                 return (
-                  <Link href='/gameCenter'>
+                  <Link href='/gameCenter' key={idx}>
                     <div className={[styles.packageItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')}>
                       <div className='flex-row flex-jst-start flex-ali-center'>
                         <img src={item.logo} alt="" className={styles.pLogo} />
@@ -62,6 +64,21 @@ export default function CenterContainer({ gameList, packageList, ...props }) {
                 )
               })
             }
+          </div>
+        </div>
+      </div>
+      {/* 第二块 */}
+      <div className={[styles.contTwo, 'flex-row', 'flex-jst-btw', 'flex-ali-start'].join(' ')}>
+        <div className={[styles.twoLeft, 'flex-2'].join(' ')}>
+          <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', styles.titBar].join(' ')}>
+            <div className={[styles.titIcon]}></div>
+            <div className={[styles.titName, 'title-font'].join(' ')}>热门活动</div>
+          </div>
+        </div>
+        <div className={[styles.twoRight, 'flex-1'].join(' ')}>
+          <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', styles.titBar].join(' ')}>
+            <div className={[styles.titIcon]}></div>
+            <div className={[styles.titName, 'title-font'].join(' ')}>新闻公告</div>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function MainLayout(props) {
     return () => {
       window.removeEventListener('scroll', scrollHandler)
     }
-  })
+  }, [router])
   return (
     <div className={styles.pageContainer}>
       {/* head */}
