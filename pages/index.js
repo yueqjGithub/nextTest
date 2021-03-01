@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
-import { Carousel } from 'antd';
+import { Carousel, Popover } from 'antd';
 import MainLayout from '../layouts/mainLayout'
 import { httpGet } from '../service/http'
 import urls from '../service/urls'
 import NewsModule from '../components/index/news/news'
 import CenterContainer from '../components/index/centerContent/centerContainer'
-
+import Image from 'next/image'
+import Link from 'next/link'
 export default function Home({info, newsList, ...props}) {
   const swiperRef = useRef()
   const [cur, setCur] = useState(0)
@@ -23,6 +24,38 @@ export default function Home({info, newsList, ...props}) {
   const setChangeDot = function (from, to) {
     setCur(to)
   }
+  const mediaList = [
+    { icon: 'icon-weixin', src: '/images/qrcode.png' },
+    { icon: 'icon-qq-circle', src: '/images/qrcode.png' },
+    { icon: 'icon-weibo', src: '/images/qrcode.png' }
+  ]
+  const linkList = [
+    {
+      title: '产品中心',
+      children: [
+        {title: '热门游戏', link: ''},
+        {title: '最新上架', link: ''},
+        {title: '测试游戏', link: ''}
+      ]
+    },
+    {
+      title: '加入阿古朵',
+      children: [
+        {title: '福利待遇', link: ''},
+        {title: '员工风采', link: ''},
+        {title: '员工发展', link: ''},
+        {title: '招聘岗位', link: ''}
+      ]
+    },
+    {
+      title: '关于阿古朵',
+      children: [
+        {title: '公司简介', link: ''},
+        {title: '发展历程', link: ''},
+        {title: '公司文化', link: ''}
+      ]
+    }
+  ]
   return (
     <div>
       <Head>
@@ -68,7 +101,70 @@ export default function Home({info, newsList, ...props}) {
           </div>
           {/* 中间部分 */}
           <div className={styles.centerOut}>
-            <CenterContainer gameList={info.games.list} packageList={info.news}></CenterContainer>
+            <CenterContainer gameList={info.games.list} packageList={info.news} newsList={newsList.slice(0, 3)}></CenterContainer>
+          </div>
+          {/* 链接部分 */}
+          <div className={styles.linkArea}>
+            <div className={[styles.contArea, 'flex-row', 'flex-jst-btw', 'flex-ali-start'].join(' ')}>
+              <div className={['flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
+                <div className={['full-width', 'flex-row', 'flex-jst-start', 'flex-ali-center', styles.concat].join(' ')}>
+                  <div className={[styles.iconOut]}>
+                    <i className='iconfont icon-youjian'></i>
+                  </div>
+                  <div className={[styles.linkInfo, 'flex-col', 'flex-jst-center', 'flex-ali-start', 'self-stretch'].join(' ')}>
+                    <p>邮箱地址：</p>
+                    <span>chaoyi@.cn</span>
+                  </div>
+                </div>
+                <div className={['full-width', 'flex-row', 'flex-jst-start', 'flex-ali-center', styles.concat].join(' ')}>
+                  <div className={[styles.iconOut]}>
+                    <i className='iconfont icon-telephone'></i>
+                  </div>
+                  <div className={[styles.linkInfo, 'flex-col', 'flex-jst-center', 'flex-ali-start', 'self-stretch'].join(' ')}>
+                    <p>联系电话：</p>
+                    <span>028-652384563</span>
+                  </div>
+                </div>
+                {/* 微博微信QQ */}
+                <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', styles.mediaList].join(' ')}>
+                  {
+                    mediaList.map((item, idx) => {
+                      return (
+                        <Popover content={
+                          <Image src={item.src} width={150} height={150}></Image>
+                        }>
+                          <i className={`iconfont ${item.icon} cursor-pointer`} style={{fontSize: '.4rem', color: '#3c4043', marginLeft: idx === 0 ? '' : '.35rem'}}></i>
+                        </Popover>
+                      )
+                    })
+                  }
+                </div>
+              </div>
+              <div className={['flex-3', 'flex-row', 'flex-jst-btw', styles.menuList].join(' ')}>
+                {
+                  linkList.map(item => {
+                    return (
+                      <div className={['flex-col', 'flex-jst-start', 'flex-ali-start', styles.menuCol].join(' ')}>
+                        <p className={styles.title}>{item.title}</p>
+                        {
+                          item.children.map(ele => {
+                            return (
+                              <Link href={ele.link}>
+                                <span className={styles.menuItem}>{ele.title}</span>
+                              </Link>
+                            )
+                          })
+                        }
+                      </div>
+                    )
+                  })
+                }
+              </div>
+              <div className={['self-stretch', 'flex-col', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
+                <img src="/images/qrcode.png" alt="" className='self-stretch'/>
+                <p className='title-font font-20'>阿古朵官方公众号</p>
+              </div>
+            </div>
           </div>
         </main>
       </MainLayout>

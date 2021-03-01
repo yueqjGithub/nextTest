@@ -4,7 +4,7 @@
   padding: .5rem 0 .9rem 0;
   .titBar{
     width: 100%;
-    margin-bottom: .15rem;
+    margin-bottom: .25rem;
     .titIcon{
       width: .06rem;
       align-self: stretch;
@@ -126,7 +126,42 @@
   }
   .contTwo{
     margin-top: .4rem;
-    .twoLeft{}
-    .twoRight{}
+    .twoLeft{
+      margin-right: .4rem;
+    }
+    .twoRight{
+      .btNewsItem{
+        background-color: #fff;
+        border-radius: .1rem;
+        width: 100%;
+        transition: all .3s ease;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: right bottom;
+        padding: .2rem .3rem;
+        height: 28%;
+        cursor: pointer;
+        &:hover{
+          background-color: #c33946;
+          p{
+            color: #fff;
+          }
+        }
+        .title{
+          font-size: .17rem;
+          color: #3c4043;
+          font-weight: bold;
+          max-height: .45rem;
+          max-width: 70%;
+          overflow: hidden;
+        }
+        .detail{
+          font-size: .13rem;
+          color: #849197;
+          margin-top: .07rem;
+          max-width: 70%;
+        }
+      }
+    }
   }
 }

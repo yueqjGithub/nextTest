@@ -2,7 +2,22 @@ import React from 'react'
 import styles from './centerContainer.module.scss'
 import Link from 'next/link'
 import dayjs from 'dayjs'
-export default function CenterContainer({ gameList, packageList, ...props }) {
+import ActiveModule from './activeMode.js'
+import { filterNewsContent } from '../../../utils/utils'
+import useRouter from 'next/router'
+export default function CenterContainer({ gameList, packageList, newsList, ...props }) {
+  const router = useRouter
+  const actList = [
+    '/images/actBg1.png',
+    '/images/actBg2.png',
+    '/images/actBg3.png'
+  ]
+  const newsDetailHandler = (id) => {
+    router.push({
+      pathname: '/news/[id]',
+      query: { id: id }
+    })
+  }
   return (
     <div className={styles.centerContainer}>
       {/* 第一块 */}
@@ -74,11 +89,26 @@ export default function CenterContainer({ gameList, packageList, ...props }) {
             <div className={[styles.titIcon]}></div>
             <div className={[styles.titName, 'title-font'].join(' ')}>热门活动</div>
           </div>
+          <div className='full-width'>
+            <ActiveModule></ActiveModule>
+          </div>
         </div>
-        <div className={[styles.twoRight, 'flex-1'].join(' ')}>
+        <div className={[styles.twoRight, 'flex-1', 'self-stretch', 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
           <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', styles.titBar].join(' ')}>
             <div className={[styles.titIcon]}></div>
             <div className={[styles.titName, 'title-font'].join(' ')}>新闻公告</div>
+          </div>
+          <div className={['flex-col', 'flex-jst-btw', 'flex-ali-center', 'flex-1', 'full-width'].join(' ')}>
+            {
+              newsList.map((item, idx) => {
+                return (
+                  <div class={styles.btNewsItem} style={{backgroundImage: `url(${actList[idx]})`}} onClick={() => newsDetailHandler(item.id)}>
+                    <p className={styles.title}>{item.title}</p>
+                    <p className={styles.detail}>{filterNewsContent(item.content, 30)}</p>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
       </div>
