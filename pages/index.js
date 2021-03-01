@@ -7,7 +7,6 @@ import { httpGet } from '../service/http'
 import urls from '../service/urls'
 import NewsModule from '../components/index/news/news'
 import CenterContainer from '../components/index/centerContent/centerContainer'
-import Image from 'next/image'
 import Link from 'next/link'
 export default function Home({info, newsList, ...props}) {
   const swiperRef = useRef()
@@ -131,8 +130,8 @@ export default function Home({info, newsList, ...props}) {
                     mediaList.map((item, idx) => {
                       return (
                         <Popover content={
-                          <Image src={item.src} width={150} height={150}></Image>
-                        }>
+                          <img src={item.src} style={{width: '1.5rem', height: '1.5rem'}}></img>
+                        } key={idx}>
                           <i className={`iconfont ${item.icon} cursor-pointer`} style={{fontSize: '.4rem', color: '#3c4043', marginLeft: idx === 0 ? '' : '.35rem'}}></i>
                         </Popover>
                       )
@@ -144,12 +143,12 @@ export default function Home({info, newsList, ...props}) {
                 {
                   linkList.map(item => {
                     return (
-                      <div className={['flex-col', 'flex-jst-start', 'flex-ali-start', styles.menuCol].join(' ')}>
+                      <div className={['flex-col', 'flex-jst-start', 'flex-ali-start', styles.menuCol].join(' ')} key={item.title}>
                         <p className={styles.title}>{item.title}</p>
                         {
                           item.children.map(ele => {
                             return (
-                              <Link href={ele.link}>
+                              <Link href={ele.link} key={ele.title}>
                                 <span className={styles.menuItem}>{ele.title}</span>
                               </Link>
                             )
@@ -172,7 +171,7 @@ export default function Home({info, newsList, ...props}) {
   )
 }
 
-export async function getServerSideProps (context) {
+export async function getStaticProps (context) {
   const { data } = await httpGet(urls.queryIndex)
   const newsRes = await httpGet(urls.queryNewsList)
   data.packages.forEach(item => {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../styles/MainLayout.module.scss'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 export default function MainLayout(props) {
   const router = useRouter()
@@ -31,7 +30,7 @@ export default function MainLayout(props) {
         style={{ opacity: showTop > 91 ? 0 : 1 - (showTop / 91) }}
       >
         <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', styles.barContainer].join(' ')}>
-          <Image src='/images/logo.png' width={211} height={55}></Image>
+          <img src='/images/logo.png' style={{width: '18%'}}></img>
           <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', 'flex-nowrap', styles.menuList].join(' ')}>
             {router.pathname === '/' ?
             <a href='/' className={[styles.activePath, styles.menuItem].join(' ')}>首页</a> :
@@ -54,7 +53,7 @@ export default function MainLayout(props) {
       {/* foot */}
       <div className={[styles.footContainer, 'flex-row', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
         <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', styles.footCont].join(' ')}>
-          <Image src='/images/fLogo.png' width={287} height={96}></Image>
+          <img src='/images/fLogo.png' style={{width: '25%'}}></img>
           <div className='flex-col flex-jst-start flex-ali-end font-16 text-light-grey'>
             <p>阿古朵游戏版权所有 ©XXXX-XXXX中国网络游戏版权保护联盟举报中心</p>
             <p>XXXXXXXX©XXXX-XXXX . ALL RIGHT RESERVED . 京ICP备XXXXXXXXX-X号</p>

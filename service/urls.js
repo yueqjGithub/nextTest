@@ -4,7 +4,7 @@ let baseUrl = 'http://webapi.8xgame.cn'
 // const baseUrl = '/gameDateManage'
 
 if( process.env.NODE_ENV === 'production' ) {
-  baseURL = ''
+  baseUrl = 'http://webapi.8xgame.cn'
 }
 
 const urls = {

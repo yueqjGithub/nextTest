@@ -102,7 +102,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
             {
               newsList.map((item, idx) => {
                 return (
-                  <div class={styles.btNewsItem} style={{backgroundImage: `url(${actList[idx]})`}} onClick={() => newsDetailHandler(item.id)}>
+                  <div className={styles.btNewsItem} style={{backgroundImage: `url(${actList[idx]})`}} onClick={() => newsDetailHandler(item.id)} key={idx}>
                     <p className={styles.title}>{item.title}</p>
                     <p className={styles.detail}>{filterNewsContent(item.content, 30)}</p>
                   </div>
