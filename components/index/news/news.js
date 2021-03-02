@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import styles from './news.module.scss'
 import Link from 'next/link'
@@ -14,6 +14,22 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
       query: { id: id }
     })
   }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (cur < (gameList.length - 1)) {
+        let now = cur + 1
+        setCur(now)
+      } else {
+        setCur(0)
+      }
+    }, 4000)
+    return function () {
+      clearInterval(interval)
+    }
+  })
+  const toGameCenter = () => {
+    router.push({pathname: '/gameCenter'})
+  }
   return (
     <div className={[styles.contain, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')} style={{backgroundImage: `url(${gameList[cur].poster})`}}>
       {/* 左侧游戏列表 */}
@@ -23,12 +39,12 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
           gameList.map((item, idx) => {
             return (
               <div className={[styles.leftItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center', 'cursor-pointer', idx === cur ? styles.curLeft: ''].join(' ')} key={idx}
-              onClick={() => setCur(idx)}
+              onClick={() => toGameCenter()}
               >
                 <img src={item.logo} alt="" className={styles.logos}/>
                 <div className={['flex-col', 'flex-jst-ard', 'flex-ali-start', 'self-stretch', styles.introCont].join(' ')}>
                   <p className={styles.gameName}>{item.name}</p>
-                  <p className={styles.gameIntro}>{item.introduction}</p>
+                  <p className={styles.gameIntro}>{item.subtitle}</p>
                 </div>
               </div>
             )

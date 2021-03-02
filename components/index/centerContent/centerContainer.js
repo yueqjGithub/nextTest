@@ -30,7 +30,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
           </div>
           <div className={['flex-row', 'flex-wrap', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
             {
-              gameList.map((item, idx) => {
+              gameList.filter(game => game.is_hot).map((item, idx) => {
                 return (
                   <div className={[styles.gameItem, 'flex-col', 'flex-jst-btw', 'flex-ali-center'].join(' ')} key={item.id}>
                     <img src={item.poster} alt="" className={['full-width', styles.gamePost].join(' ')} />
@@ -58,17 +58,17 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
           </div>
           <div className='full-width'>
             {
-              packageList.map((item, idx) => {
+              gameList.filter(game => game.is_hot).map((item, idx) => {
                 return (
                   <Link href='/gameCenter' key={idx}>
                     <div className={[styles.packageItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')}>
                       <div className='flex-row flex-jst-start flex-ali-center'>
                         <img src={item.logo} alt="" className={styles.pLogo} />
                         <div className='flex-col flex-jst-btw flex-ali-start self-stretch'>
-                          <p className={styles.pName}>{item.package_name}</p>
-                          <p className={styles.pIntro}>{item.description}</p>
+                          <p className={styles.pName}>{item.name}</p>
+                          <p className={styles.pIntro}>{item.subtitle}</p>
                           <div className={['flex-row', 'flex-jst-start', 'flex-ali-base', styles.pDate].join(' ')}>
-                            <i className='iconfont icon-time'></i>
+                            <i className='iconfont icon-time ma-rt-02'></i>
                             <p>{dayjs(item.created_at).format('MM月DD日')}</p>
                           </div>
                         </div>

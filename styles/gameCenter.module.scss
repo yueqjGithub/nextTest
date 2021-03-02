@@ -1,0 +1,83 @@
+.swiperOut{
+  width: 100%;
+  position: relative;
+  height: calc(60vh);
+  .swiperItem{
+    height: calc(40vh);
+    color: #fff;
+    line-height: calc(40vh);
+    text-align: center;
+    background: #364d79;
+    overflow: hidden;
+    img{
+      width: 100%;
+    }
+  }
+  &:hover{
+    .controlContainer{
+      .controlBar{
+        .controlArrow{
+          left: 0;
+          &.controlArrowRight{
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+  .controlContainer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: +1;
+    .controlBar{
+      width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: .1rem .4rem;
+      margin-bottom: 21vh;
+      .controlArrow{
+        width: .8rem;
+        height: .8rem;
+        background: rgba(255,255,255,.6);
+        border-radius: 50%;
+        position: relative;
+        left: -2.4rem;
+        transition: left .3s linear;
+        cursor: pointer;
+        &.controlArrowRight{
+          left: 2.4rem
+        }
+        .controlIcon{
+          font-size: .4rem;
+          color: #fff;
+          &.transIcon{
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    
+    .dotContainer{ // 轮播点
+      padding: .05rem 0;
+      .cusDot{
+        width: .2rem;
+        height: .2rem;
+        border: .02rem solid #fff;
+        border-radius: 50%;
+        margin: 0 .05rem;
+        background: #fff;
+        cursor: pointer;
+        &.curDot{
+          background: #c33946;
+        }
+      }
+    }
+  }
+}
+.centerOut{
+  width: 100%;
+  background: url('../public/images/idx-contBg.png');
+  background-size: 100% 100%;
+}

@@ -9,6 +9,7 @@ import NewsModule from '../components/index/news/news'
 import CenterContainer from '../components/index/centerContent/centerContainer'
 import Link from 'next/link'
 export default function Home({info, newsList, ...props}) {
+  console.log(info)
   const swiperRef = useRef()
   const [cur, setCur] = useState(0)
   const preHandler = function () {
@@ -86,7 +87,7 @@ export default function Home({info, newsList, ...props}) {
                 }
               </div>
               {/* 新闻模块 */}
-              <NewsModule gameList={info.games.list.slice(0, 5)} newsList={newsList.slice(0, 8)}></NewsModule>
+              <NewsModule gameList={info.games.list.filter(item => item.is_hot).slice(0, 5)} newsList={newsList.slice(0, 8)}></NewsModule>
             </div>
             <Carousel effect="slide" dots={false} autoplay={true} ref={swiperRef} beforeChange={(from, to) => setChangeDot(from, to)}>
               {info.banners.map(item => {
