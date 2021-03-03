@@ -4,7 +4,7 @@ $--color-primary: #2E5BFF;
 
 $--color-warning: #F7B26B;
 
-$--color-danger: #EF3434;
+$--color-danger: #ef1a46;
 
 $--color-success: #0ABD9E;
 //-------深色字默认颜色-------
@@ -84,7 +84,7 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
   color: $--color-grey;
 }
 .text-light-grey{
-  color: #d9d9d9;
+  color: #aca6aa;
 }
 .text-white{
   color: #ffffff;
@@ -107,6 +107,10 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
 .font-18{font-size: .18rem;}
 .font-20{font-size: .2rem;}
 .font-22{font-size: .22rem;}
+.font-24{font-size: .24rem;}
+.font-26{font-size: .26rem;}
+.font-28{font-size: .27rem;}
+.font-30{font-size: .3rem;}
 .font-bold{font-weight: bold;}
 .flex-row{display: flex;flex-direction: row;}
 .flex-row-reverse{display: flex;flex-direction: row-reverse;}
@@ -138,12 +142,77 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
   white-space: nowrap;
 }
 // antd样式修正
+// --分页器
+.cus-pagenation{
+  margin-top: .3rem;
+  .ant-pagination{
+    .ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next, .ant-pagination-item{
+      height: auto;
+    }
+    li{
+      background: #eeeeee;
+      border-radius: .03rem;
+      padding: .15rem;
+      font-size: .16rem;
+      &.ant-pagination-prev{
+        margin-right: .2rem;
+        &:not(.ant-pagination-disabled){
+          &:hover{
+            .ant-pagination-item-link{
+              color: #c53946;
+            }
+          }
+        }
+      }
+      &.ant-pagination-next{
+        margin-left: .12rem;
+        &:not(.ant-pagination-disabled){
+          &:hover{
+            .ant-pagination-item-link{
+              color: #c53946;
+            }
+          }
+        }
+      }
+      &.ant-pagination-item-active{
+        color: #c53946;
+        border-color: #c53946;
+        a{
+          color: #c53946;
+        }
+      }
+      &.ant-pagination-item{
+        padding: .08rem .12rem;
+        a{
+          font-weight: bold;
+          font-size: .16rem;
+        }
+        &:hover{
+          border-color: #c53946;
+          a{
+            color: #c53946;
+          }
+        }
+      }
+      .ant-pagination-item-link{
+        padding: 0;
+        background: none;
+        outline: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: .2rem;
+      }
+    }
+  }
+}
 p{
   margin: 0;
 }
 .pages{
   max-width: 2048px;
-  min-width: 1200px;
+  min-width: 1450px;
   margin: 0 auto;
   // width: 100vw;
   // min-height: 100vh;

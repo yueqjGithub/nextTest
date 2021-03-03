@@ -80,4 +80,53 @@
       }
     }
   }
+  .modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: +4;
+    .modalContent{
+      background-size: 100% 100%;
+      position: relative;
+      width: 54vw;
+      height: 30vw;
+      .titleBar{
+        padding: 0 .2rem 0 .5rem;
+        box-sizing: border-box;
+        img{
+          width: 5vw;
+        }
+        margin-top: calc(-2.5vw - .3rem);
+      }
+      .subPic{
+        width: 76%;
+        position: absolute;
+        right: -12%;
+        top: -22%;   
+      }
+      .desContaienr{
+        margin: .3rem 0 0 .3rem;
+        .des{
+          font-size: .14rem;
+          font-weight: 600;
+          color: #333;
+          max-width: 36%;
+          height: 13vw;
+        }
+        .codeContainer{
+          background: #fff;
+          border-radius: .08rem;
+          padding: .08rem;
+          box-sizing: border-box;
+        }
+        .wxCode{
+          width: 1.2rem;
+          height: 1.2rem;
+        }
+      }
+    }
+  }
 }

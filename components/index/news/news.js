@@ -40,6 +40,7 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
             return (
               <div className={[styles.leftItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center', 'cursor-pointer', idx === cur ? styles.curLeft: ''].join(' ')} key={idx}
               onClick={() => toGameCenter()}
+              onMouseEnter={() => setCur(idx)}
               >
                 <img src={item.logo} alt="" className={styles.logos}/>
                 <div className={['flex-col', 'flex-jst-ard', 'flex-ali-start', 'self-stretch', styles.introCont].join(' ')}>

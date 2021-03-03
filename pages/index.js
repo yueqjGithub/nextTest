@@ -9,7 +9,6 @@ import NewsModule from '../components/index/news/news'
 import CenterContainer from '../components/index/centerContent/centerContainer'
 import Link from 'next/link'
 export default function Home({info, newsList, ...props}) {
-  console.log(info)
   const swiperRef = useRef()
   const [cur, setCur] = useState(0)
   const preHandler = function () {

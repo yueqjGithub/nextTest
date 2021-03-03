@@ -3,7 +3,6 @@ import styles from '../styles/MainLayout.module.scss'
 import { useRouter } from 'next/router'
 export default function MainLayout(props) {
   const router = useRouter()
-  console.log(router)
   const [showTop, setShowTop] = useState(0)
   const routes = [
     // { meta: '首页', path: '/' },

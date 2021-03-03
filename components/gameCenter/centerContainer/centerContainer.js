@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import styles from './centerContainer.module.scss'
 import { filterNewsContent } from '../../../utils/utils'
 import Link from 'next/link'
 import QRCode from 'qrcode.react'
-export default function CenterContainer({ gameList, ...props }) {
+import urls from '../../../service/urls'
+export default function CenterContainer({ gameList, packages, ...props }) {
+  const [curGame, setCurGame] = useState(null)
+  const curPackage = useMemo(() => {
+    const target = curGame ? packages.find(item => item.game_id === curGame.id) : null
+    const result = {
+      ...target,
+      gameLogo: curGame ? curGame.logo : '',
+      subtitle: curGame ? curGame.subtitle : ''
+    }
+    return result
+  }, [curGame])
   return (
     <div className={styles.centerContainer}>
       <div className={[styles.bread, 'flex-row', 'flex-jst-start', 'flex-ali-base'].join(' ')}>
@@ -12,7 +23,7 @@ export default function CenterContainer({ gameList, ...props }) {
           <span className='title-font font-18 text-normal ma-rt-1 cursor-pointer font-bold'>首页</span>
         </Link>
         <span className='font-18 text-normal ma-rt-1'>{'>>'}</span>
-        <span className='font-18 text-red'>游戏中心</span>
+        <span className='font-18 text-red font-bold'>游戏中心</span>
       </div>
       <div className={['flex-row', 'flex-wrap', 'flex-jst-start', 'flex-ali-start', styles.gameList].join(' ')}>
         {
@@ -40,7 +51,7 @@ export default function CenterContainer({ gameList, ...props }) {
                     <div className={['self-stretch', 'flex-col', 'flex-jst-ard', 'flex-ali-start'].join(' ')}>
                       <p className='text-white font-16 font-bold'>扫码下载：{item.name}</p>
                       <p className='text-white font-16 font-bold'>{item.subtitle}</p>
-                      <div className={styles.cusButton}>了解更多{' >'}</div>
+                      <div className={styles.cusButton} onClick={() => setCurGame(item)}>了解更多{' >'}</div>
                     </div>
                   </div>
                 </div>
@@ -51,6 +62,49 @@ export default function CenterContainer({ gameList, ...props }) {
           })
         }
       </div>
+      {/* 弹出层 */}
+      {
+        curGame ?
+          <div className={[styles.modal, 'flex-row', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
+            <div className={[styles.modalContent]} style={{ backgroundImage: `url(${curPackage.poster})` }}>
+              <img src={curPackage.logo} alt="" className={styles.subPic}/>
+              <div className={[styles.titleBar, 'flex-row', 'flex-jst-btw', 'flex-ali-start'].join(' ')}>
+                <div className={['flex-row', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
+                  <img src={curPackage.gameLogo} alt="" className='ma-rt-2' />
+                  <div className={['self-strech', 'flex-col', 'flex-jst-ard', 'flex-ali-start'].join(' ')}>
+                    <p className='title-font font-22 text-white'>{curPackage.gameName}</p>
+                    <p className='font-16 text-light-grey'>{curPackage.subtitle}</p>
+                  </div>
+                </div>
+                <i className='font-20 iconfont icon-close text-danger cursor-pointer' onClick={() => setCurGame(null)} style={{position: 'relative', zIndex: '+5'}}></i>
+              </div>
+              <div className={['full-width', 'flex-col', 'flex-jst-start', 'flex-ali-start', styles.desContaienr].join(' ')}>
+                <p className={styles.des}>{curPackage.description}</p>
+                <div className={['flex-row', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
+                  <div className={[styles.codeContainer, 'flex-col', 'flex-jst-center', 'flex-ali-center', 'ma-rt-2'].join(' ')}>
+                    <QRCode
+                      value={`${urls.downloadPage}?id=${curPackage.id}`}
+                      level='H'
+                      size={120} // 二维码的大小
+                      fgColor="#333333" // 二维码的颜色
+                      imageSettings={{ // 二维码中间的logo图片
+                        src: curPackage.gameLogo,
+                        height: 30,
+                        width: 30,
+                        excavate: false // 中间图片所在的位置是否镂空
+                      }}
+                    />
+                    <p className='text-blk font-14'>扫码下载游戏</p>
+                  </div>
+                  <div className={[styles.codeContainer, 'flex-col', 'flex-jst-center', 'flex-ali-center', 'ma-rt-2'].join(' ')}>
+                    <img src="/images/qrcode.png" alt="" className={styles.wxCode}/>
+                    <p className='text-blk font-14'>官方公众号</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> : ''
+      }
     </div>
   )
 }

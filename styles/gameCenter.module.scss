@@ -1,11 +1,11 @@
 .swiperOut{
   width: 100%;
   position: relative;
-  height: calc(60vh);
+  height: calc(55vh);
   .swiperItem{
-    height: calc(40vh);
+    height: calc(55vh);
     color: #fff;
-    line-height: calc(40vh);
+    line-height: calc(55vh);
     text-align: center;
     background: #364d79;
     overflow: hidden;
@@ -36,7 +36,7 @@
       overflow: hidden;
       box-sizing: border-box;
       padding: .1rem .4rem;
-      margin-bottom: 21vh;
+      margin-bottom: 17vh;
       .controlArrow{
         width: .8rem;
         height: .8rem;

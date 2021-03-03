@@ -7,7 +7,6 @@ import urls from '../../service/urls'
 import styles from '../../styles/gameCenter.module.scss'
 import CenterContainer from '../../components/gameCenter/centerContainer/centerContainer.js'
 export default function gameCenter({ info, ...props }) {
-  console.log(info)
   const swiperRef = useRef()
   const [cur, setCur] = useState(0)
   const preHandler = function () {
@@ -65,7 +64,7 @@ export default function gameCenter({ info, ...props }) {
           </div>
           {/* 中间部分 */}
           <div className={styles.centerOut}>
-            <CenterContainer gameList={info.games.list}></CenterContainer>
+            <CenterContainer gameList={info.games.list} packages={info.packages}></CenterContainer>
           </div>
         </main>
       </MainLayout>
