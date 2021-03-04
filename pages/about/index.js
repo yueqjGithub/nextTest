@@ -5,7 +5,8 @@ export default function About (props) {
   return (
     <div>
       <Head>
-        <title>About</title>
+        <title>阿古朵-关于我们</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
         About

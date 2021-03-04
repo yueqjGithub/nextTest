@@ -22,7 +22,6 @@ export default function gameCenter({ info, newsList, ...props }) {
     }
     const start = 25 * (curPage - 1)
     const end = 25 * curPage
-    console.log(total)
     return total.slice(start, end)
   }, [curType, curPage])
   const preHandler = function () {

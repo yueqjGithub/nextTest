@@ -141,6 +141,9 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.letter-space-05{
+  letter-spacing: .05rem;
+}
 // antd样式修正
 // --分页器
 .cus-pagenation{
