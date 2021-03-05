@@ -6,6 +6,9 @@ import { httpGet } from '../../service/http'
 import { Carousel } from 'antd';
 import urls from '../../service/urls'
 import styles from '../../styles/about.module.scss'
+import Introduce from '../../components/about/introduce'
+import Calture from '../../components/about/calture'
+import History from '../../components/about/history'
 export default function gameCenter({ info, ...props }) {
   const swiperRef = useRef()
   const [cur, setCur] = useState(0) // swiper-index
@@ -23,12 +26,15 @@ export default function gameCenter({ info, ...props }) {
     setCur(to)
   }
   const typeList = [
-    { value: 0, label: '公司介绍', tit: '/images/about-tit-inro.png' },
-    { value: 1, label: '发展历程', tit: '/images/about-tit-his.png' },
-    { value: 2, label: '公司文化', tit: '/images/about-tit-cal.png' },
+    { value: 0, label: '公司介绍', tit: '/images/about-tit-inro.png', content: Introduce },
+    { value: 1, label: '发展历程', tit: '/images/about-tit-his.png', content: History },
+    { value: 2, label: '公司文化', tit: '/images/about-tit-cal.png', content: Calture },
     { value: 3, label: '员工风采', tit: '/images/about-tit-str.png' },
     { value: 4, label: '员工发展', tit: '/images/about-tit-worker.png' }
   ]
+  const Content = useMemo(() => {
+    return typeList.find(item => item.value === curType).content
+  }, [curType])
   return (
     <div>
       <Head>
@@ -84,7 +90,7 @@ export default function gameCenter({ info, ...props }) {
                   <span className='font-18 text-red font-bold'>关于我们</span>
                 </div>
                 {/* 标题 */}
-                <div className={['flex-col', 'flex-jst-center', 'flex-ali-center', 'flex-2'].join(' ')}>
+                <div className={['flex-col', 'flex-jst-center', 'flex-ali-center', 'flex-3'].join(' ')}>
                   <img src={typeList.find(item => item.value === curType).tit} alt="" style={{ width: '32%' }} />
                 </div>
                 <div className='flex-1'></div>
@@ -92,7 +98,7 @@ export default function gameCenter({ info, ...props }) {
               {/* 列表部分 */}
               <div className={['flex-row', 'flex-jst-btw', 'flex-ali-start', styles.listOut].join(' ')}>
                 {/* 类型选择 */}
-                <div className={[styles.control]}>
+                <div className={[styles.control, 'flex-1', 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
                   {
                     typeList.map((item, idx) => {
                       return (
@@ -102,8 +108,10 @@ export default function gameCenter({ info, ...props }) {
                   }
                 </div>
                 {/* 新闻列表 */}
-                <div className={['flex-2', styles.listContainer, 'flex-col', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
+                <div className={['flex-3', styles.listContainer, 'flex-col', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
+                  <Content/>
                 </div>
+                <div className='flex-1'></div>
               </div>
             </div>
           </div>
