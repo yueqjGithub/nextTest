@@ -32,6 +32,12 @@ $--color-grey: #cccccc;
   color: $--color-font-default;
 }
 
+@media screen and (max-width: 1350px) {
+  html{
+    font-size: 500% !important;
+  }
+}
+
 html{
   font-size: 625%;
 }

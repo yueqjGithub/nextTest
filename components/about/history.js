@@ -23,7 +23,7 @@ export default function History(props) {
         hisList.map((item, idx) => {
           return (
             <div className={[styles.listItem, idx % 2 === 1 ? 'flex-row' : 'flex-row-reverse', 'flex-jst-start', 'flex-ali-start', styles.listItem, idx % 2 === 1 ? styles.rightSide : styles.leftSide].join(' ')} key={idx}
-            style={{animationDelay: `${idx * 0.5}s`}}
+            style={{animationDelay: `${(idx + 1) * 0.5}s`}}
             >
               <div className={[styles.titCircle]}>
                 <div></div>

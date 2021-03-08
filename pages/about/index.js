@@ -9,6 +9,8 @@ import styles from '../../styles/about.module.scss'
 import Introduce from '../../components/about/introduce'
 import Calture from '../../components/about/calture'
 import History from '../../components/about/history'
+import Employees from '../../components/about/employees'
+import DevContent from '../../components/about/development'
 export default function gameCenter({ info, ...props }) {
   const swiperRef = useRef()
   const [cur, setCur] = useState(0) // swiper-index
@@ -29,8 +31,8 @@ export default function gameCenter({ info, ...props }) {
     { value: 0, label: '公司介绍', tit: '/images/about-tit-inro.png', content: Introduce },
     { value: 1, label: '发展历程', tit: '/images/about-tit-his.png', content: History },
     { value: 2, label: '公司文化', tit: '/images/about-tit-cal.png', content: Calture },
-    { value: 3, label: '员工风采', tit: '/images/about-tit-str.png' },
-    { value: 4, label: '员工发展', tit: '/images/about-tit-worker.png' }
+    { value: 3, label: '员工风采', tit: '/images/about-tit-worker.png', content: Employees },
+    { value: 4, label: '员工发展', tit: '/images/about-tit-str.png', content: DevContent }
   ]
   const Content = useMemo(() => {
     return typeList.find(item => item.value === curType).content

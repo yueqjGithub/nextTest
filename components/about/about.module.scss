@@ -19,12 +19,10 @@
       box-sizing: border-box;
       position: relative;
       opacity: 0;
-      &:not(.listFirst){
-        animation-name: FadeInAni;
-        animation-duration: .5s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-      }
+      animation-name: FadeInAni;
+      animation-duration: .5s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
       &.listFirst{
         height: 1rem;
         width: 50%;
@@ -85,6 +83,101 @@
       }
     }
   }
+  &.employ{
+    .rows{
+      padding-bottom: 1.2rem;
+      position: relative;
+      cursor: pointer;
+      &:hover{
+        .picItem{
+          &:nth-child(1){
+            animation: slfBk .4s ease forwards;
+          }
+          &:nth-child(2){
+            animation: centerBk .4s ease forwards;
+          }
+          &:nth-child(3){
+            animation: srtBk .4s ease forwards
+          }
+        }
+      }
+      .picItem{
+        width: 32%;
+        &:nth-child(2){
+          z-index: inherit;
+          animation: CenterAni .4s ease forwards;
+        }
+        &:nth-child(1){
+          z-index: +1;
+          animation: singleLeft .4s ease forwards;
+        }
+        &:nth-child(3){
+          z-index: +1;
+          animation: singleRight .4s ease forwards
+        }
+      }
+      &.rowsDouble{
+        position: relative;
+        .picItem{
+          &:nth-child(1){
+            animation: doubleLeft .4s ease forwards;
+          }
+          &:nth-child(3){
+            animation: doubleRight .4s ease forwards
+          }
+        }
+        &:hover{
+          .picItem{
+            &:nth-child(1){
+              animation: dlfBk .4s ease forwards;
+            }
+            &:nth-child(2){
+              animation: centerBk .4s ease forwards;
+            }
+            &:nth-child(3){
+              animation: drtBk .4s ease forwards
+            }
+          }
+        }
+      }
+    }
+  }
+  &.devlopment{
+    .devItem{
+      margin-bottom: .4rem;
+      .itemTit{
+        font-size: .3rem;
+        padding: .2rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.8);
+	      border-radius: 15px;
+      }
+      .itemContent{
+        background-color: #ffffff;
+        box-shadow: 0px 4px 9px 0px 
+          rgba(0, 0, 0, 0.8);
+        border-radius: 15px;
+        padding: .05rem;
+        box-sizing: border-box;
+        align-self: stretch;
+        flex: 1;
+        img{
+          width: 50%;
+          height: 100%;
+        }
+        .wordContainer{
+          flex: 1;
+          box-sizing: border-box;
+          padding: 0 .18rem;
+          font-size: .16rem;
+          color: #424547;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
 @keyframes FadeInAni {
@@ -93,5 +186,92 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+// 员工风采动画
+@keyframes singleLeft {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(20%, 0);
+  }
+}
+
+@keyframes CenterAni {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 60%);
+  }
+}
+
+@keyframes singleRight {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-20%, 0);
+  }
+}
+
+@keyframes doubleLeft {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(35%, 0);
+  }
+}
+
+@keyframes doubleRight {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-35%, 0);
+  }
+}
+
+@keyframes slfBk {
+  from {
+    transform: translate(20%, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes dlfBk {
+  from {
+    transform: translate(35%, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes srtBk {
+  from {
+    transform: translate(-20%, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes drtBk {
+  from {
+    transform: translate(-35%, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes centerBk{
+  from {
+    transform: translate(0, 60%);
+  }
+  to {
+    transform: translate(0, 0);
   }
 }

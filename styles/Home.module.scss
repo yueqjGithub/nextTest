@@ -2,6 +2,7 @@
   width: 100%;
   position: relative;
   height: calc(100vh - .91rem);
+  min-height: 6rem;
   .swiperItem{
     height: calc(100vh - .91rem);
     color: #fff;
@@ -10,8 +11,10 @@
     background: #364d79;
     width: 100vw;
     overflow: hidden;
+    min-height: 6rem;
     img{
       width: 100%;
+      min-height: 100%;
     }
   }
   &:hover{
