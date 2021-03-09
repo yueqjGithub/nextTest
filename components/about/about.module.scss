@@ -18,11 +18,12 @@
       padding-bottom: .4rem;
       box-sizing: border-box;
       position: relative;
-      opacity: 0;
-      animation-name: FadeInAni;
-      animation-duration: .5s;
-      animation-timing-function: linear;
-      animation-fill-mode: forwards;
+      // opacity: 0;
+      transition: all .5s linear;
+      // animation-name: FadeInAni;
+      // animation-duration: .5s;
+      // animation-timing-function: linear;
+      // animation-fill-mode: forwards;
       &.listFirst{
         height: 1rem;
         width: 50%;

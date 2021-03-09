@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/router'
 import styles from './news.module.scss'
 import Link from 'next/link'
@@ -14,11 +14,13 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
       query: { id: id }
     })
   }
+  const linkPosition = useMemo(() => {
+    return (cur + 0.5) * (100 / gameList.length)
+  }, [cur, gameList])
   useEffect(() => {
     const interval = setInterval(() => {
       if (cur < (gameList.length - 1)) {
-        let now = cur + 1
-        setCur(now)
+        setCur(current => current+1)
       } else {
         setCur(0)
       }
@@ -26,7 +28,7 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
     return function () {
       clearInterval(interval)
     }
-  })
+  }, [cur])
   const toGameCenter = () => {
     router.push({pathname: '/gameCenter'})
   }
@@ -34,7 +36,7 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
     <div className={[styles.contain, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')} style={{backgroundImage: `url(${gameList[cur].poster})`}}>
       {/* 左侧游戏列表 */}
       <div className={[styles.leftCont, 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
-        <div className={styles.pin} style={{top: `calc(${(cur * 20) + 10}%  - .1rem)`}}></div>
+        <div className={styles.pin} style={{top: `calc(${linkPosition}%  - .1rem)`}}></div>
         {
           gameList.map((item, idx) => {
             return (

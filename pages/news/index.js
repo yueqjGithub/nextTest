@@ -3,11 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import MainLayout from '../../layouts/mainLayout'
 import { httpGet } from '../../service/http'
-import { Carousel } from 'antd';
+import { Carousel, Pagination } from 'antd';
 import urls from '../../service/urls'
 import styles from '../../styles/news.module.scss'
 import dayjs from 'dayjs'
-import { Pagination } from 'antd'
 export default function gameCenter({ info, newsList, ...props }) {
   const swiperRef = useRef()
   const [cur, setCur] = useState(0) // swiper-index
