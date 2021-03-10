@@ -17,7 +17,7 @@ const Treat = props => {
       {
         treatList.map((item, idx) => {
           return (
-            <div className={[styles.treatItem, 'flex-col', 'flex-jst-start', 'flex-ali-center', 'cus-fade-in'].join(' ')}>
+            <div className={[styles.treatItem, 'flex-col', 'flex-jst-start', 'flex-ali-center', 'cus-fade-in'].join(' ')} key={idx}>
               <i className={['text-danger', 'iconfont', item.icon, styles.iconBar].join(' ')}></i>
               <p className={styles.titleBar}>{item.title}</p>
               <p className={styles.subBar}>{item.sub}</p>

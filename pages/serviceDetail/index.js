@@ -1,22 +1,18 @@
-import React, { useRef, useState, useMemo, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import MainLayout from '../../layouts/mainLayout'
 import { httpGet } from '../../service/http'
 import { Carousel } from 'antd';
 import urls from '../../service/urls'
-import styles from '../../styles/about.module.scss'
-import Introduce from '../../components/about/introduce'
-import Calture from '../../components/about/calture'
-import History from '../../components/about/history'
-import Employees from '../../components/about/employees'
-import DevContent from '../../components/about/development'
+import styles from '../../styles/serviceDetail.module.scss'
 import { useRouter } from 'next/router'
-export default function gameCenter({ info, ...props }) {
+export default function gameCenter({ info, questions, ...props }) {
+  // console.log(jobList)
   const router = useRouter()
   const swiperRef = useRef()
   const [cur, setCur] = useState(0) // swiper-index
-  const [curType, setType] = useState(0) // newsType
+  const [curType, setType] = useState(1)
   const preHandler = function () {
     swiperRef.current.prev()
   }
@@ -29,25 +25,28 @@ export default function gameCenter({ info, ...props }) {
   const setChangeDot = function (from, to) {
     setCur(to)
   }
-  const typeList = [
-    { value: 0, label: '公司介绍', tit: '/images/about-tit-inro.png', content: Introduce },
-    { value: 1, label: '发展历程', tit: '/images/about-tit-his.png', content: History },
-    { value: 2, label: '公司文化', tit: '/images/about-tit-cal.png', content: Calture },
-    { value: 3, label: '员工风采', tit: '/images/about-tit-worker.png', content: Employees },
-    { value: 4, label: '员工发展', tit: '/images/about-tit-str.png', content: DevContent }
-  ]
   useEffect(() => {
     if (router.query.type) {
       setType(Number(router.query.type))
     }
   }, [router])
-  const Content = useMemo(() => {
-    return typeList.find(item => item.value === curType).content
-  }, [curType])
+  const curList = useMemo(() => {
+    return questions.filter(item => item.type === curType)
+  })
+  const typeList = [
+    { value: 1, label: '充值问题' },
+    { value: 2, label: '账号问题' },
+    { value: 3, label: '游戏问题' },
+    { value: 4, label: '被盗申诉' },
+    { value: 5, label: '外挂举报' }
+  ]
+  const OPEN_KF_HANDLER = () => {
+    window.open('http://wpa.qq.com/msgrd?v=3&uin=800183557&site=qq&menu=yes')
+  }
   return (
     <div>
       <Head>
-        <title>阿古朵-关于我们</title>
+        <title>阿古朵-客服中心</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainLayout>
@@ -88,7 +87,7 @@ export default function gameCenter({ info, ...props }) {
           {/* 中间部分 */}
           <div className={styles.centerOut}>
             <div className={styles.contentContainer}>
-              <div className={['flex-row', 'flex-jst-btw', 'flex-ali-start'].join(' ')}>
+              <div className={['flex-row', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
                 {/* 面包屑导航 */}
                 <div className={[styles.bread, 'flex-row', 'flex-jst-start', 'flex-ali-base', 'flex-1'].join(' ')}>
                   <div className='self-stretch title-prefix ma-rt-2'></div>
@@ -96,31 +95,41 @@ export default function gameCenter({ info, ...props }) {
                     <span className='title-font font-18 text-normal ma-rt-1 cursor-pointer font-bold'>首页</span>
                   </Link>
                   <span className='font-18 text-normal ma-rt-1'>{'>>'}</span>
-                  <span className='font-18 text-red font-bold'>关于我们</span>
+                  <Link href='/serviceCenter'>
+                    <span className='font-18 text-red font-bold cursor-pointer'>客服中心</span>
+                  </Link>
                 </div>
-                {/* 标题 */}
-                <div className={['flex-col', 'flex-jst-center', 'flex-ali-center', 'flex-3'].join(' ')}>
-                  <img src={typeList.find(item => item.value === curType).tit} alt="" style={{ width: '32%' }} />
-                </div>
-                <div className='flex-1'></div>
               </div>
-              {/* 列表部分 */}
+              {/* 正文 */}
               <div className={['flex-row', 'flex-jst-btw', 'flex-ali-start', styles.listOut].join(' ')}>
                 {/* 类型选择 */}
                 <div className={[styles.control, 'flex-1', 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
                   {
                     typeList.map((item, idx) => {
                       return (
-                        <div className={[styles.typeButton, idx === curType ? styles.typeCur : ''].join(' ')} key={idx} onClick={() => setType(idx)}>{item.label}</div>
+                        <div className={[styles.typeButton, item.value === curType ? styles.typeCur : ''].join(' ')} key={idx} onClick={() => setType(item.value)}>{item.label}</div>
                       )
                     })
                   }
                 </div>
                 {/* 新闻列表 */}
-                <div className={['flex-3', styles.listContainer, 'flex-col', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
-                  <Content/>
+                <div className={['flex-3', styles.listContainer, 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
+                  {
+                    curList.map(item => {
+                      return (
+                        <div className={[styles.listItem, 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')} key={item.id}>
+                          <p className={['font-bold', 'font-16', 'text-blk', styles.itemTit].join(' ')}>{item.title}</p>
+                          <div className='full-width'>
+                            <div dangerouslySetInnerHTML={{__html: item.content}}></div>
+                          </div>
+                        </div>
+                      )
+                    })
+                  }
                 </div>
-                <div className='flex-1'></div>
+                <div className='flex-1 flex-row flex-jst-center flex-ali-start'>
+                  <img src="/images/service/kf.png" alt="" style={{width: '40%'}} onClick={() => OPEN_KF_HANDLER()} className='cursor-pointer'/>
+                </div>
               </div>
             </div>
           </div>
@@ -132,9 +141,11 @@ export default function gameCenter({ info, ...props }) {
 
 export async function getStaticProps(context) {
   const { data } = await httpGet(urls.queryIndex)
+  const questions = await httpGet(urls.queryQuestions)
   return {
     props: {
-      info: data
+      info: data,
+      questions: questions.data
     }, // will be passed to the page component as props
   }
 }

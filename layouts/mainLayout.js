@@ -10,7 +10,7 @@ export default function MainLayout(props) {
     { meta: '新闻中心', path: '/news' },
     { meta: '关于我们', path: '/about' },
     { meta: '加入我们', path: '/join' },
-    { meta: '客服中心', path: '/service' }
+    { meta: '客服中心', path: '/serviceCenter' }
   ]
   const scrollHandler = () => {
     const h = document.documentElement.scrollTop

@@ -8,7 +8,7 @@ import urls from '../service/urls'
 import NewsModule from '../components/index/news/news'
 import CenterContainer from '../components/index/centerContent/centerContainer'
 import Link from 'next/link'
-export default function Home({info, newsList, ...props}) {
+export default function Home({ info, newsList, ...props }) {
   const swiperRef = useRef()
   const [cur, setCur] = useState(0)
   const preHandler = function () {
@@ -25,36 +25,39 @@ export default function Home({info, newsList, ...props}) {
   }
   const mediaList = [
     { icon: 'icon-weixin', src: '/images/qrcode.png' },
-    { icon: 'icon-qq-circle', src: '/images/qrcode.png' },
+    { icon: 'icon-qq-circle', src: '/images/qrcode.png', openLink: true },
     { icon: 'icon-weibo', src: '/images/qrcode.png' }
   ]
   const linkList = [
     {
       title: '产品中心',
       children: [
-        {title: '热门游戏', link: ''},
-        {title: '最新上架', link: ''},
-        {title: '测试游戏', link: ''}
+        { title: '热门游戏', link: '/gameCenter' },
+        { title: '最新上架', link: '/gameCenter' },
+        { title: '测试游戏', link: '/gameCenter' }
       ]
     },
     {
       title: '加入阿古朵',
       children: [
-        {title: '福利待遇', link: ''},
-        {title: '员工风采', link: ''},
-        {title: '员工发展', link: ''},
-        {title: '招聘岗位', link: ''}
+        { title: '福利待遇', link: '/join?type=1' },
+        { title: '员工风采', link: '/about?type=3' },
+        { title: '员工发展', link: '/about?type=4' },
+        { title: '招聘岗位', link: '/join?type=0' }
       ]
     },
     {
       title: '关于阿古朵',
       children: [
-        {title: '公司简介', link: ''},
-        {title: '发展历程', link: ''},
-        {title: '公司文化', link: ''}
+        { title: '公司简介', link: '/about?type=0' },
+        { title: '发展历程', link: '/about?type=1' },
+        { title: '公司文化', link: '/about?type=2' }
       ]
     }
   ]
+  const OPEN_KF_HANDLER = () => {
+    window.open('http://wpa.qq.com/msgrd?v=3&uin=800183557&site=qq&menu=yes')
+  }
   return (
     <div>
       <Head>
@@ -67,12 +70,12 @@ export default function Home({info, newsList, ...props}) {
             {/* 轮播方向箭头 */}
             <div className={[styles.controlContainer, 'flex-col', 'flex-ali-center', 'flex-jst-start'].join(' ')}>
               <div className={[styles.controlBar, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')}>
-                <div className={['flex-row', 'flex-jst-center', 'flex-ali-center', styles.controlArrow].join(' ')} onClick={()=>preHandler()}>
-                  <i className={['iconfont', 'icon-left', styles.controlIcon].join(' ')}/>
+                <div className={['flex-row', 'flex-jst-center', 'flex-ali-center', styles.controlArrow].join(' ')} onClick={() => preHandler()}>
+                  <i className={['iconfont', 'icon-left', styles.controlIcon].join(' ')} />
                 </div>
                 {/* 向右 */}
-                <div className={['flex-row', 'flex-jst-center', 'flex-ali-center', styles.controlArrow, styles.controlArrowRight].join(' ')} onClick={()=>nextHandler()}>
-                  <i className={['iconfont', 'icon-left', styles.controlIcon, styles.transIcon].join(' ')}/>
+                <div className={['flex-row', 'flex-jst-center', 'flex-ali-center', styles.controlArrow, styles.controlArrowRight].join(' ')} onClick={() => nextHandler()}>
+                  <i className={['iconfont', 'icon-left', styles.controlIcon, styles.transIcon].join(' ')} />
                 </div>
               </div>
               {/* 轮播点 */}
@@ -92,7 +95,7 @@ export default function Home({info, newsList, ...props}) {
               {info.banners.map(item => {
                 return (
                   <div className={styles.swiperItem} key={item}>
-                    <img src={item} alt=""/>
+                    <img src={item} alt="" />
                   </div>
                 )
               })}
@@ -128,13 +131,16 @@ export default function Home({info, newsList, ...props}) {
                 <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', styles.mediaList].join(' ')}>
                   {
                     mediaList.map((item, idx) => {
-                      return (
-                        <Popover content={
-                          <img src={item.src} style={{width: '1.5rem', height: '1.5rem'}}></img>
-                        } key={idx}>
-                          <i className={`iconfont ${item.icon} cursor-pointer`} style={{fontSize: '.4rem', color: '#3c4043', marginLeft: idx === 0 ? '' : '.35rem'}}></i>
-                        </Popover>
-                      )
+                      return item.openLink ? (
+                        <i className={`iconfont ${item.icon} cursor-pointer`} style={{ fontSize: '.4rem', color: '#3c4043', marginLeft: idx === 0 ? '' : '.35rem' }} onClick={() => OPEN_KF_HANDLER()} key={idx}></i>
+                      ) :
+                        (
+                          <Popover content={
+                            <img src={item.src} style={{ width: '1.5rem', height: '1.5rem' }}></img>
+                          } key={idx}>
+                            <i className={`iconfont ${item.icon} cursor-pointer`} style={{ fontSize: '.4rem', color: '#3c4043', marginLeft: idx === 0 ? '' : '.35rem' }}></i>
+                          </Popover>
+                        )
                     })
                   }
                 </div>
@@ -160,7 +166,7 @@ export default function Home({info, newsList, ...props}) {
                 }
               </div>
               <div className={['self-stretch', 'flex-col', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
-                <img src="/images/qrcode.png" alt="" className='self-stretch'/>
+                <img src="/images/qrcode.png" alt="" className='self-stretch' />
                 <p className='title-font font-20'>阿古朵官方公众号</p>
               </div>
             </div>
@@ -171,7 +177,7 @@ export default function Home({info, newsList, ...props}) {
   )
 }
 
-export async function getStaticProps (context) {
+export async function getStaticProps(context) {
   const { data } = await httpGet(urls.queryIndex)
   const newsRes = await httpGet(urls.queryNewsList)
   data.packages.forEach(item => {

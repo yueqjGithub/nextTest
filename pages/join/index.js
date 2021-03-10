@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react'
+import React, { useRef, useState, useMemo, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import MainLayout from '../../layouts/mainLayout'
@@ -9,8 +9,10 @@ import styles from '../../styles/join.module.scss'
 import Treat from '../../components/join/treat'
 import Offer from '../../components/join/offer'
 import { MyContext } from '../../components/join/myContext'
+import { useRouter } from 'next/router'
 export default function gameCenter({ info, jobList, ...props }) {
   // console.log(jobList)
+  const router = useRouter()
   const swiperRef = useRef()
   const [cur, setCur] = useState(0) // swiper-index
   const [curType, setType] = useState(0) // newsType
@@ -30,6 +32,11 @@ export default function gameCenter({ info, jobList, ...props }) {
     { value: 0, label: '招聘岗位', content: Offer },
     { value: 1, label: '福利待遇', content: Treat }
   ]
+  useEffect(() => {
+    if (router.query.type) {
+      setType(Number(router.query.type))
+    }
+  }, [router])
   const Content = useMemo(() => {
     return typeList.find(item => item.value === curType).content
   }, [curType])

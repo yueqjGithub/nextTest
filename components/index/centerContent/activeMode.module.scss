@@ -52,6 +52,7 @@
   // 下方单独活动模块
   .actSingle{
     padding: .2rem .25rem;
+    width: 45%;
     img{
       width: 70%;
     }
@@ -69,7 +70,7 @@
   }
   // 右侧
   .rightCont{
-    margin-left: .5rem;
+    margin-left: 4%;
     background-image: url('/images/actBg.png');
     background-size: 95%;
     background-position: right bottom;
