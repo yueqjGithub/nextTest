@@ -187,3 +187,41 @@
     }
   }
 }
+.feedModal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.5);
+  z-index: +1;
+  overflow: hidden;
+  .modalContainer{
+    min-width: 36.5%;
+    padding: .29rem .26rem .15rem .26rem;
+    box-sizing: border-box;
+    background-image: url('/images/service/feedBg.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    .feedTit{
+      margin: .3rem 0 .08rem 0;
+    }
+    .commitBtn{
+      position: relative;
+      margin: .3rem auto;
+      background-color: #d7403c;
+	    border-radius: 8px;
+      padding: .08rem 8%;
+      box-sizing: border-box;
+      &.loadingBtn{
+        background: #f5f5f5;
+        color: #3c3f41;
+        cursor: not-allowed;
+      }
+      &:not(.loadingBtn):active{
+        transform: scale(.9);
+      }
+    }
+  }
+}

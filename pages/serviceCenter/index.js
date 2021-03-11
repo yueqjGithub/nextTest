@@ -2,16 +2,26 @@ import React, { useRef, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import MainLayout from '../../layouts/mainLayout'
-import { httpGet } from '../../service/http'
+import { httpGet, httpPost } from '../../service/http'
 import { Carousel } from 'antd';
 import urls from '../../service/urls'
 import styles from '../../styles/service.module.scss'
 import { useRouter } from 'next/router'
+import { Input, Select, message } from 'antd'
+import { LoadingOutlined, CloseOutlined } from '@ant-design/icons'
+const { Option } = Select
+const { TextArea } = Input
 export default function gameCenter({ info, ...props }) {
   // console.log(jobList)
   const router = useRouter()
   const swiperRef = useRef()
   const [cur, setCur] = useState(0) // swiper-index
+  // form
+  const [modalStatus, setModalStatus] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [feedType, setFeedType] = useState(1)
+  const [feedContent, setFeedContent] = useState('')
+  const [feedaddress, setFeedaddress] = useState('')
   const preHandler = function () {
     swiperRef.current.prev()
   }
@@ -25,10 +35,41 @@ export default function gameCenter({ info, ...props }) {
     setCur(to)
   }
   const toDetailHandler = type => {
-    router.push({ pathname: '/serviceDetail', query: {type: type} })
+    router.push({ pathname: '/serviceDetail', query: { type: type } })
   }
   const OPEN_KF_HANDLER = () => {
     window.open('http://wpa.qq.com/msgrd?v=3&uin=800183557&site=qq&menu=yes')
+  }
+  const SUBMIT_FEEDBACK = async () => {
+    if (loading) {
+      return false
+    }
+    const obj = {
+      type: feedType,
+      content: feedContent,
+      address: feedaddress
+    }
+    if (obj.content === '') {
+      message.warning('请描述您的问题')
+      return false
+    }
+    const reg = /^[0-9a-zA-Z@.]{5,}$/
+    if (!reg.test(obj.address)) {
+      message.warning('请输入正确的联系方式')
+      return false
+    }
+    try {
+      setLoading(true)
+      const { data } = await httpPost(urls.commitFeedback, obj)
+      setLoading(false)
+      if (data.status === 200) {
+        message.success('提交成功，请耐心等待回复')
+      } else {
+        message.error(data.msg)
+      }
+    } catch {
+      message.error('提交出错了')
+    }
   }
   return (
     <div>
@@ -99,13 +140,13 @@ export default function gameCenter({ info, ...props }) {
                   {/* row1-right */}
                   <div className='flex-col flex-jst-btw flex-ali-center self-stretch'>
                     <div className='flex-row flex-jst-btw flex-ali-center'>
-                      <div className={[styles.hoverOut, styles.topModal].join(' ')} onClick={()=>toDetailHandler(1)}>
+                      <div className={[styles.hoverOut, styles.topModal].join(' ')} onClick={() => toDetailHandler(1)}>
                         <img src="/images/service/cz1.png" alt="" />
                         <div className={styles.hoverContainer}>
                           <img src="/images/service/cz2.png" alt="" />
                         </div>
                       </div>
-                      <div className={[styles.hoverOut, styles.topModal, styles.topModalRight].join(' ')} onClick={()=>toDetailHandler(2)}>
+                      <div className={[styles.hoverOut, styles.topModal, styles.topModalRight].join(' ')} onClick={() => toDetailHandler(2)}>
                         <img src="/images/service/zh1.png" alt="" />
                         <div className={styles.hoverContainer}>
                           <img src="/images/service/zh2.png" alt="" />
@@ -113,13 +154,13 @@ export default function gameCenter({ info, ...props }) {
                       </div>
                     </div>
                     <div className='flex-row flex-jst-btw flex-ali-center'>
-                      <div className={[styles.hoverOut, styles.topModal].join(' ')} onClick={()=>toDetailHandler(3)}>
+                      <div className={[styles.hoverOut, styles.topModal].join(' ')} onClick={() => toDetailHandler(3)}>
                         <img src="/images/service/yx1.png" alt="" />
                         <div className={styles.hoverContainer}>
                           <img src="/images/service/yx2.png" alt="" />
                         </div>
                       </div>
-                      <div className={[styles.hoverOut, styles.topModal, styles.topModalRight].join(' ')}>
+                      <div className={[styles.hoverOut, styles.topModal, styles.topModalRight].join(' ')} onClick={() => setModalStatus(true)}>
                         <img src="/images/service/ts1.png" alt="" />
                         <div className={styles.hoverContainer}>
                           <img src="/images/service/ts2.png" alt="" />
@@ -130,13 +171,13 @@ export default function gameCenter({ info, ...props }) {
                 </div>
                 {/* rows2 */}
                 <div className='flex-row flex-jst-btw flex-ali-center'>
-                  <div className={[styles.hoverOut, styles.btmModal].join(' ')} onClick={()=>toDetailHandler(4)}>
+                  <div className={[styles.hoverOut, styles.btmModal].join(' ')} onClick={() => toDetailHandler(4)}>
                     <img src="/images/service/bd1.png" alt="" />
                     <div className={styles.hoverContainer}>
                       <img src="/images/service/bd2.png" alt="" />
                     </div>
                   </div>
-                  <div className={[styles.hoverOut, styles.btmModal, styles.btmModalRight].join(' ')} onClick={()=>toDetailHandler(5)}>
+                  <div className={[styles.hoverOut, styles.btmModal, styles.btmModalRight].join(' ')} onClick={() => toDetailHandler(5)}>
                     <img src="/images/service/jb1.png" alt="" />
                     <div className={styles.hoverContainer}>
                       <img src="/images/service/jb2.png" alt="" />
@@ -146,6 +187,41 @@ export default function gameCenter({ info, ...props }) {
               </div>
             </div>
           </div>
+          {/* 投诉建议弹出层 */}
+          {
+            modalStatus ?
+              (
+                <div className={[styles.feedModal, 'flex-row', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
+                  <div className={[styles.modalContainer, 'flex-col', 'flex-jst-start', 'flex-ali-center', 'control-select'].join(' ')}>
+                    {
+                      loading ?
+                        '' :
+                        <CloseOutlined style={{ color: '#d7403c', fontSize: '.3rem', position: 'absolute', right: '.26rem', top: '.29rem', cursor: 'pointer' }} onClick={() => setModalStatus(false)}></CloseOutlined>
+                    }
+                    <p className='font-24 text-blk title-font'>投诉建议</p>
+                    <div className='full-width'>
+                      <p className={[styles.feedTit, 'text-normal', 'font-16'].join(' ')}>问题类型</p>
+                      <Select defaultValue={feedType} style={{ width: '100%' }} onSelect={val => setFeedType(val)}>
+                        <Option value={1}>投诉</Option>
+                        <Option value={2}>建议</Option>
+                      </Select>
+                      <p className={[styles.feedTit, 'text-normal', 'font-16'].join(' ')}>情况说明</p>
+                      <TextArea rows={6} style={{ border: '1px solid #939393', borderRadius: '6px' }} placeholder='请具体描述您的问题...' onChange={e => setFeedContent(e.target.value)}></TextArea>
+                      <p className={[styles.feedTit, 'text-normal', 'font-16'].join(' ')}>联系方式</p>
+                      <Input style={{ border: '1px solid #939393', borderRadius: '6px', height: '42px' }} placeholder='请留下您的联系方式' onChange={e => setFeedaddress(e.target.value)}></Input>
+                    </div>
+                    <div className={[styles.commitBtn, loading ? styles.loadingBtn : '', 'cursor-pointer', 'flex-row', 'flex-jst-center', 'flex-ali-center', 'title-font', 'text-white', 'font-24'].join(' ')}
+                      onClick={() => SUBMIT_FEEDBACK()}
+                    >
+                      提交
+                {
+                        loading ? <LoadingOutlined style={{ position: 'absolute', right: '5%', fontSize: '.16rem' }} /> : ''
+                      }
+                    </div>
+                  </div>
+                </div>
+              ) : ''
+          }
         </main>
       </MainLayout>
     </div>

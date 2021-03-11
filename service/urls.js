@@ -16,7 +16,8 @@ const urls = {
   newsDetail: '/api/home/news/detail', // 新闻详情
   jobList: '/api/home/job', // 职位列表
   jobDetail: '/api/home/job/detail', // 职位详情
-  queryQuestions: '/api/home/service' // 客服中心问题列表
+  queryQuestions: '/api/home/service', // 客服中心问题列表
+  commitFeedback: '/api/feedback'
 }
 
 export default urls

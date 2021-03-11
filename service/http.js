@@ -2,8 +2,6 @@ import axios from 'axios'
 import urls from './urls'
 import qs from 'qs'
 
-axios.defaults.withCredentials = true
-
 const http = axios.create({
   baseURL: urls.baseUrl,
   timeout: 30000
