@@ -214,7 +214,7 @@ export default function gameCenter({ info, ...props }) {
                       onClick={() => SUBMIT_FEEDBACK()}
                     >
                       提交
-                {
+                      {
                         loading ? <LoadingOutlined style={{ position: 'absolute', right: '5%', fontSize: '.16rem' }} /> : ''
                       }
                     </div>
