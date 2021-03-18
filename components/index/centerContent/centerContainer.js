@@ -58,7 +58,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
           </div>
           <div className='full-width'>
             {
-              gameList.filter(game => game.is_hot).map((item, idx) => {
+              gameList.filter(game => game.is_public).map((item, idx) => {
                 return (
                   <Link href='/gameCenter' key={idx}>
                     <div className={[styles.packageItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')}>
