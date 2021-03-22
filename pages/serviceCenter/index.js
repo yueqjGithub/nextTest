@@ -102,7 +102,7 @@ export default function gameCenter({ info, ...props }) {
                 }
               </div>
             </div>
-            <Carousel effect="slide" dots={false} autoplay={true} ref={swiperRef} beforeChange={(from, to) => setChangeDot(from, to)}>
+            <Carousel effect="fade" dots={false} autoplay={true} ref={swiperRef} beforeChange={(from, to) => setChangeDot(from, to)}>
               {info.banners.map(item => {
                 return (
                   <div className={styles.swiperItem} key={item}>

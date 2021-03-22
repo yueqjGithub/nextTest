@@ -91,7 +91,7 @@ export default function Home({ info, newsList, ...props }) {
               {/* 新闻模块 */}
               <NewsModule gameList={info.games.list.filter(item => item.is_hot).slice(0, 5)} newsList={newsList.slice(0, 8)}></NewsModule>
             </div>
-            <Carousel effect="slide" dots={false} autoplay={true} ref={swiperRef} beforeChange={(from, to) => setChangeDot(from, to)}>
+            <Carousel effect="fade" dots={false} autoplay={true} ref={swiperRef} beforeChange={(from, to) => setChangeDot(from, to)}>
               {info.banners.map(item => {
                 return (
                   <div className={styles.swiperItem} key={item}>
