@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../styles/MainLayout.module.scss'
+import styles from '../styles/mainLayout.module.scss'
 import { useRouter } from 'next/router'
 export default function MainLayout(props) {
   const router = useRouter()
