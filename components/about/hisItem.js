@@ -20,9 +20,10 @@ export default function HisItem({ item, idx, ...props }) {
           <h2 className='title-font font-20 text-normal'>{item.year}</h2>
           <p className='font-16 text-normal'>{item.word}</p>
         </div>
-        <div className={[styles.itemImg, 'flex-row', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
-          <img src={item.img} alt="" />
-        </div>
+        {/* <div className={[styles.itemImg, 'flex-row', 'flex-jst-center', 'flex-ali-center'].join(' ')}> */}
+          {/* <img src={item.img} alt="" /> */}
+        {/* </div> */}
+        <div></div>
       </div>
     </div>
   )
