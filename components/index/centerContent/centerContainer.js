@@ -35,7 +35,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
                   <div className={[styles.gameItem, 'flex-col', 'flex-jst-btw', 'flex-ali-center'].join(' ')} key={item.id}>
                     <img src={item.poster} alt="" className={['full-width', styles.gamePost].join(' ')} />
                     <p className={['title-font', styles.gameName].join(' ')}>《{item.name}》</p>
-                    <div className={styles.gameIntro}>{item.introduction}</div>
+                    <div className={styles.gameIntro}>{item.subtitle}</div>
                     <div className={styles.split}>
                       <div></div>
                     </div>
@@ -66,7 +66,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
                         <img src={item.logo} alt="" className={styles.pLogo} />
                         <div className='flex-col flex-jst-btw flex-ali-start self-stretch'>
                           <p className={styles.pName}>{item.name}</p>
-                          <p className={styles.pIntro}>{item.subtitle}</p>
+                          <p className={[styles.pIntro, 'ellipis'].join(' ')}>{item.subtitle}</p>
                           <div className={['flex-row', 'flex-jst-start', 'flex-ali-base', styles.pDate].join(' ')}>
                             <i className='iconfont icon-time ma-rt-02'></i>
                             <p>{dayjs(item.created_at).format('MM月DD日')}</p>

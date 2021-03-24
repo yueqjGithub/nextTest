@@ -56,7 +56,7 @@ export default function CenterContainer({ gameList, packages, ...props }) {
                   </div>
                 </div>
                 <p className={['title-font', styles.gameName].join(' ')}>《{item.name}》</p>
-                <div className={styles.gameIntro}>{item.introduction}</div>
+                <div className={styles.gameIntro}>{item.subtitle}</div>
               </div>
             )
           })

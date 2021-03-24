@@ -115,7 +115,7 @@ export default function Home({ info, newsList, ...props }) {
                   </div>
                   <div className={[styles.linkInfo, 'flex-col', 'flex-jst-center', 'flex-ali-start', 'self-stretch'].join(' ')}>
                     <p>邮箱地址：</p>
-                    <span>chaoyi@.cn</span>
+                    <span>xzhr@cdcyi.cn</span>
                   </div>
                 </div>
                 <div className={['full-width', 'flex-row', 'flex-jst-start', 'flex-ali-center', styles.concat].join(' ')}>
@@ -124,7 +124,7 @@ export default function Home({ info, newsList, ...props }) {
                   </div>
                   <div className={[styles.linkInfo, 'flex-col', 'flex-jst-center', 'flex-ali-start', 'self-stretch'].join(' ')}>
                     <p>联系电话：</p>
-                    <span>028-652384563</span>
+                    <span>028-81135270</span>
                   </div>
                 </div>
                 {/* 微博微信QQ */}
@@ -181,7 +181,7 @@ export async function getStaticProps(context) {
   const { data } = await httpGet(urls.queryIndex)
   const newsRes = await httpGet(urls.queryNewsList)
   data.packages.forEach(item => {
-    item.gameName = data.games.list.find(ele => ele.id === item.game_id).name
+    item.gameName = data.games.list.find(ele => ele.id === item.game_id) ? data.games.list.find(ele => ele.id === item.game_id).name : '未命名'
   })
   return {
     props: {

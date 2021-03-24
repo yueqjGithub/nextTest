@@ -3,14 +3,13 @@ import styles from './about.module.scss'
 import HisItem from './hisItem'
 export default function History(props) {
   const hisList = [
-    { year: 2020, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2019, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2018, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2017, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2016, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2015, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2014, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
-    { year: 2013, word: '成都市副市长曹俊杰一行莅临超亿科技调研新经济企业情况，并对公司市场化的实践探索给予了高度肯定', img: '/images/about/his-pic.png' },
+    { year: '至今', word: '目前有多款游戏产品上线', img: '/images/about/his-pic.png' },
+    { year: '2021年3月', word: '阿古朵广州分公司成立', img: '/images/about/his-pic.png' },
+    { year: '2020年2月', word: '成都阿古朵七象科技有限公司成立', img: '/images/about/his-pic.png' },
+    { year: '2019年12月', word: '成都阿古朵八项科技有限公司成立，致力于游戏研发', img: '/images/about/his-pic.png' },
+    { year: '2018年', word: '北京应用互联有限公司 后更名为：成都阿古朵八项科技有限公司北京分公司', img: '/images/about/his-pic.png' },
+    { year: '2015年9月', word: '四川佐耳科技有限公司成立', img: '/images/about/his-pic.png' },
+    { year: '2015年2月', word: '成都超亿科技有限公司成立', img: '/images/about/his-pic.png' },
   ]
   return (
     <div className={[styles.wordContainer, styles.hisContainer, 'flex-col', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
