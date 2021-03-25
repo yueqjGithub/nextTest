@@ -12,13 +12,13 @@ const DevContent = (props) => {
     {
       title: '人才培养',
       bgColor: '#ff5838',
-      imgSrc: '/images/about/intro-1.png',
+      imgSrc: '/images/about/intro-2.jpg',
       content: '阿古朵网络科技自成立以来就非常重视人才的培养。为了培养专业的管理人才，公司成立了“人才培养机制”'
     },
     {
       title: '人才发展',
       bgColor: '#4e3530',
-      imgSrc: '/images/about/intro-1.png',
+      imgSrc: '/images/about/intro-3.jpg',
       content: '每一位负责人都会积极发现和培养有追求有激情的员工，帮助他们在技术上和团队管理上得以提升。'
     }
   ]

@@ -89,6 +89,13 @@
     padding: .4rem 0 .4rem 0;
     .leftSide{
       margin-right: 4%;
+      width: 67%;
+      .detailContainer{
+        width: 100%;
+        img{
+          max-width: 100%;
+        }
+      }
       .newsTitle{
         margin: .3rem 0 .4rem 0;
       }

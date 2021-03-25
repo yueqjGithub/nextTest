@@ -30,7 +30,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
           </div>
           <div className={['flex-row', 'flex-wrap', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
             {
-              gameList.filter(game => game.is_hot).map((item, idx) => {
+              gameList.map((item, idx) => {
                 return (
                   <div className={[styles.gameItem, 'flex-col', 'flex-jst-btw', 'flex-ali-center'].join(' ')} key={item.id}>
                     <img src={item.poster} alt="" className={['full-width', styles.gamePost].join(' ')} />

@@ -120,12 +120,12 @@ export default function gameCenter({ info, newsList, ...props }) {
                       return (
                         <div className={[styles.newsItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center', 'full-width', 'cursor-pointer'].join(' ')} key={item.id}>
                           <Link href={`/news/${item.id}`}>
-                            <div className='flex-row flex-jst-start flex-ali-center'>
+                            <div className='flex-row flex-jst-start flex-ali-center flex-1'>
                               <span className='ma-rt-02 text-danger font-14'>【{typeList.find(ele => ele.value === item.type).label}】</span>
                               <p className={['ellipis', 'font-16', styles.newsTitle].join(' ')}>{item.title}</p>
                             </div>
                           </Link>
-                          <p className='text-blk font-16'>{dayjs(item.created_at).format('YYYY-MM-DD')}</p>
+                          <p className={['text-blk', 'font-16', styles.newsDate].join(' ')}>{dayjs(item.created_at).format('YYYY-MM-DD')}</p>
                         </div>
                       )
                     })

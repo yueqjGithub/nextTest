@@ -147,10 +147,10 @@
     .devItem{
       margin-bottom: .4rem;
       .itemTit{
-        font-size: .3rem;
+        font-size: .27rem;
         padding: .2rem;
-        width: 1.8rem;
-        height: 1.8rem;
+        width: 9vw;
+        height: 9vw;
         box-sizing: border-box;
         box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.8);
 	      border-radius: 15px;
@@ -167,6 +167,7 @@
         img{
           width: 50%;
           height: 100%;
+          border-radius: 15px;
         }
         .wordContainer{
           flex: 1;

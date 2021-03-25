@@ -92,7 +92,7 @@ export default function Detail({ news, info, newsList, ...props }) {
                 {/* 新闻标题 */}
                 <div className={['flex-row', 'flex-jst-center', 'flex-ali-center', 'title-font', 'font-30', styles.newsTitle].join(' ')}>{news.title}</div>
                 {/* 新闻内容 */}
-                <div dangerouslySetInnerHTML={{ __html: news.content }}></div>
+                <div dangerouslySetInnerHTML={{ __html: news.content }} className={styles.detailContainer}></div>
                 {/* 上下篇链接 */}
                 <div className={styles.eitherLink}>
                   <div className={[styles.linkItem, 'font-14', 'text-blk', 'flex-row', 'flex-jst-start', 'flex-ali-center', 'cursor-pointer'].join(' ')}>
@@ -144,7 +144,7 @@ export default function Detail({ news, info, newsList, ...props }) {
                       <Link href={`/news/${item.id}`} key={item.id}>
                         <div className={['flex-row', 'flex-jst-start', 'flex-ali-center', 'font-14', 'text-blk', styles.newsItem].join(' ')}>
                           <span className='ma-rt-02'>【资讯】</span>
-                          <p className='flex-1 ellipis'>{item.title}</p>
+                          <p className='flex-1 ellipis' style={{maxWidth: '80%', overflow: 'hidden'}}>{item.title}</p>
                         </div>
                       </Link>
                     )

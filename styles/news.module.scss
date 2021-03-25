@@ -164,6 +164,8 @@
             color: #8a8a8a;
             text-overflow: ellipsis;
             white-space: nowrap;
+            max-width: 1rem;
+            overflow: hidden;
           }
           .pDate{
             font-size: .13rem;
@@ -185,8 +187,14 @@
           box-sizing: border-box;
           padding: .1rem;
           margin-bottom: .1rem;
+          .newsDate{
+            width: 1rem;
+            text-align: right;
+          }
           .newsTitle{
             color: #3d3e40;
+            max-width: 80%;
+            overflow: hidden;
           }
           &:hover{
             .newsTitle{
