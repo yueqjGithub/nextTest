@@ -41,7 +41,7 @@ export default function gameCenter({ info, questions, ...props }) {
     { value: 5, label: '外挂举报' }
   ]
   const OPEN_KF_HANDLER = () => {
-    window.open('http://wpa.qq.com/msgrd?v=3&uin=800183557&site=qq&menu=yes')
+    window.open('tencent://message/?uin=800183557&Site=在线QQ&amp;Menu=yes')
   }
   return (
     <div>

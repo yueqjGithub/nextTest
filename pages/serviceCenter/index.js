@@ -38,7 +38,7 @@ export default function gameCenter({ info, ...props }) {
     router.push({ pathname: '/serviceDetail', query: { type: type } })
   }
   const OPEN_KF_HANDLER = () => {
-    window.open('http://wpa.qq.com/msgrd?v=3&uin=800183557&site=qq&menu=yes')
+    window.open('tencent://message/?uin=800183557&Site=在线QQ&amp;Menu=yes')
   }
   const SUBMIT_FEEDBACK = async () => {
     if (loading) {
