@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import MainLayout from '../../layouts/mainLayout'
-import { httpGet } from '../../service/http'
+import MainLayout from '../../../layouts/mainLayout'
+import { httpGet } from '../../../service/http'
 import { Carousel } from 'antd';
-import urls from '../../service/urls'
-import styles from '../../styles/serviceDetail.module.scss'
+import urls from '../../../service/urls'
+import styles from '../../../styles/serviceDetail.module.scss'
 import { useRouter } from 'next/router'
 export default function gameCenter({ info, questions, ...props }) {
   // console.log(jobList)

@@ -35,7 +35,7 @@ export default function gameCenter({ info, ...props }) {
     setCur(to)
   }
   const toDetailHandler = type => {
-    router.push({ pathname: '/serviceDetail', query: { type: type } })
+    router.push({ pathname: '/serviceCenter/serviceDetail', query: { type: type } })
   }
   const OPEN_KF_HANDLER = () => {
     window.open('tencent://message/?uin=800183557&Site=在线QQ&amp;Menu=yes')

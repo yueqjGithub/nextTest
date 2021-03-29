@@ -167,7 +167,7 @@ export default function Home({ info, newsList, ...props }) {
                 }
               </div>
               <div className={['self-stretch', 'flex-col', 'flex-jst-center', 'flex-ali-center'].join(' ')}>
-                <img src="/images/qrcode.png" alt="" className='self-stretch' />
+                <img src="/images/qrcode.png" alt="" className='self-stretch' style={{display: 'block', height: '1.6rem'}}/>
                 <p className='title-font font-20'>阿古朵官方公众号</p>
               </div>
             </div>
