@@ -33,7 +33,7 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
     router.push({pathname: '/gameCenter'})
   }
   return (
-    <div className={[styles.contain, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')} style={{backgroundImage: `url(${gameList[cur].hot_background || gameList[cur].poster})`}}>
+    <div className={[styles.contain, 'flex-row', 'flex-jst-btw', 'flex-ali-center', 'sm-screen-news'].join(' ')} style={{backgroundImage: `url(${gameList[cur].hot_background || gameList[cur].poster})`}}>
       {/* 左侧游戏列表 */}
       <div className={[styles.leftCont, 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
         <div className={styles.pin} style={{top: `calc(${linkPosition}%  - .1rem)`}}></div>
