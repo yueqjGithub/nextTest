@@ -13,7 +13,9 @@ $--color-grey: #cccccc;
 // -------------标题字体
 @font-face{
   font-family: 'title-font';
-  src: url('../public/胡晓波男神体.otf');
+  src: url("../public/fonts/胡晓波男神体.otf");
+  font-weight: normal;
+  font-style: normal;
 }
 // -----------------普通字体---------------------
 @font-face{
@@ -47,10 +49,13 @@ body{
 
 div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
   font-family: 'normal-font';
+  font-family: "Microsoft YaHei"\0;
 }
 
 .title-font{
   font-family: 'title-font';
+  font-family: 'Microsoft YaHei'\0;
+  font-weight: bold\0;
 }
 
 .rtl{

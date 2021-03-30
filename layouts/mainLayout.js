@@ -32,13 +32,13 @@ export default function MainLayout(props) {
           <img src='/images/logo.png' style={{width: '18%'}}></img>
           <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', 'flex-nowrap', styles.menuList].join(' ')}>
             {router.pathname === '/' ?
-            <a href='/' className={[styles.activePath, styles.menuItem].join(' ')}>首页</a> :
+            <a href='/' className={[styles.activePath, styles.menuItem, 'title-font'].join(' ')}>首页</a> :
             <a href='/' className={[styles.dectivePath, styles.menuItem].join(' ')}>首页</a>
             }
             {routes.map((item) => {
               return (
                 router.pathname.startsWith(item.path) ?
-                  <a href={item.path} className={[styles.activePath, styles.menuItem].join(' ')} key={item.path}>{item.meta}</a> :
+                  <a href={item.path} className={[styles.activePath, styles.menuItem, 'title-font'].join(' ')} key={item.path}>{item.meta}</a> :
                   <a href={item.path} className={[styles.dectivePath, styles.menuItem].join(' ')} key={item.path}>{item.meta}</a>
               )
             })}

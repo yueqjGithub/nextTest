@@ -21,13 +21,13 @@
           font-size: .16rem;
           color: #8b8b8b;
           &.activePath{
-            font-family: 'title-font';
             color: #c02334;
             font-size: .18rem;
           }
           &:hover{
             font-family: 'title-font';
             color: #c02334;
+            font-weight: bold\0;
           }
         }
       }

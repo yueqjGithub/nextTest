@@ -117,7 +117,7 @@ export default function gameCenter({ info, questions, ...props }) {
                   {
                     curList.map(item => {
                       return (
-                        <div className={[styles.listItem, 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')} key={item.id}>
+                        <div className={[styles.listItem, 'flex-col', 'flex-jst-start', 'flex-ali-start', 'full-width'].join(' ')} key={item.id}>
                           <p className={['font-bold', 'font-16', 'text-blk', styles.itemTit].join(' ')}>{item.title}</p>
                           <div className='full-width'>
                             <div dangerouslySetInnerHTML={{__html: item.content}}></div>

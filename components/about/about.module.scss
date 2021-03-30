@@ -40,6 +40,7 @@
       }
       &.leftSide{
         transform: translate((calc(-50% + 1px)), 0);
+        transform: translate(-50%, 0)\0;
         border-right: 1px solid #dcdcdc;
         .titCircle{
           transform: translate(50%, 0);
@@ -144,6 +145,7 @@
     }
   }
   &.devlopment{
+    max-height: 8.5rem;
     .devItem{
       margin-bottom: .4rem;
       .itemTit{

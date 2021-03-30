@@ -23,7 +23,7 @@ const DevContent = (props) => {
     }
   ]
   return (
-    <div className={[styles.wordContainer, styles.devlopment, 'flex-col', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
+    <div className={[styles.wordContainer, styles.devlopment].join(' ')}>
       {
         list.map((item, idx) => {
           return (

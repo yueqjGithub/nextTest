@@ -95,6 +95,9 @@
       position: absolute;
       left: .25rem;
       top: 23%;
+      &+.actDes{
+        left: .45rem;
+      }
       &.actDesAni{
         animation: downAni 1s linear;
       }
