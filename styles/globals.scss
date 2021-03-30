@@ -13,20 +13,17 @@ $--color-grey: #cccccc;
 // -------------标题字体
 @font-face{
   font-family: 'title-font';
-  src: url("../public/fonts/胡晓波男神体.otf");
+  src: url("../public/fonts/胡晓波男神体.eot"),
+  url("../public/fonts/胡晓波男神体.eot") format('embedded-opentype'),
+  url("../public/fonts/胡晓波男神体.otf");
   font-weight: normal;
   font-style: normal;
 }
 // -----------------普通字体---------------------
 @font-face{
   font-family: 'normal-font';
-  src: url('../public/MicrosoftYaHei-01.ttf') format('truetype');
-  font-weight: normal;
-}
-
-@font-face{
-  font-family: 'normal-font';
-  src: url('../public/MicrosoftYaHeiUI-02.ttf') format('truetype');
+  src: url('../public/MicrosoftYaHei-01.ttf') format('truetype'),
+  url('../public/MicrosoftYaHeiUI-02.ttf') format('truetype');
   font-weight: normal;
 }
 
@@ -56,7 +53,6 @@ div,p,span,a,strong,h1,h2,h3,h4,h5,h6,li{
 
 .title-font{
   font-family: 'title-font';
-  font-weight: bold\0;
 }
 
 .rtl{
