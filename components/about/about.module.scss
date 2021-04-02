@@ -105,9 +105,11 @@
       }
       .picItem{
         width: 32%;
+        transition: all .4s ease;
         &:nth-child(2){
           z-index: inherit;
           animation: CenterAni .4s ease forwards;
+          transform: translate(0, 60%)\9;
         }
         &:nth-child(1){
           z-index: +1;
