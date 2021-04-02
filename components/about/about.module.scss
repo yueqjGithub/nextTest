@@ -4,7 +4,7 @@
   .imgHalf{
     width: 50%;
   }
-  .normalP{font-size: .15rem;line-height: .2rem;letter-spacing: .01rem;}
+  .normalP{font-size: .15rem;line-height: .2rem;letter-spacing: .01rem; max-width: 50%;}
   .partP{font-size: .15rem; line-height: .3rem; margin-bottom: .2rem;text-indent: .3rem;}
   &.introduce{
     .title{
