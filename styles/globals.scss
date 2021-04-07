@@ -13,9 +13,9 @@ $--color-grey: #cccccc;
 // -------------标题字体
 @font-face{
   font-family: 'title-font';
-  src: url("../public/fonts/胡晓波男神体.eot"),
-  url("../public/fonts/胡晓波男神体.eot") format('embedded-opentype'),
-  url("../public/fonts/胡晓波男神体.otf");
+  src: url("../public/fonts/胡晓波男神体.eot"), // IE专用
+  url("../public/fonts/胡晓波男神体.eot") format('embedded-opentype'), // IE专用
+  url("../public/fonts/胡晓波男神体.otf"); // chrome,firefox,safari
   font-weight: normal;
   font-style: normal;
 }
