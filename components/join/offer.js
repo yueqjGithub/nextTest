@@ -5,7 +5,6 @@ import { Pagination } from 'antd';
 
 const Offer = props => {
   const { jobList } = useContext(MyContext)
-  console.log(jobList)
   const [cur, setCur] = useState(-1)
   const [curPage, setPage] = useState(1)
   const curList = useMemo(() => {
