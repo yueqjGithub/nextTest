@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "build:test": "cross-env CUSTOM_ENV=TEST_ENV next build && next export",
+    "build:prod": "cross-env CUSTOM_ENV=PROD_ENV next build && next export"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "axios": "^0.21.1",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.10.4",
     "qrcode.react": "^1.0.1",
     "react-cool-inview": "^1.2.0"
