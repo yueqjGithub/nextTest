@@ -54,10 +54,14 @@ export default function MainLayout(props) {
         <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', styles.footCont].join(' ')}>
           <img src='/images/fLogo.png' style={{width: '25%'}}></img>
           <div className='flex-col flex-jst-start flex-ali-end font-16 text-light-grey'>
-            <p>阿古朵游戏版权所有 ©XXXX-XXXX中国网络游戏版权保护联盟举报中心</p>
-            <p>XXXXXXXX©XXXX-XXXX . ALL RIGHT RESERVED . 京ICP备XXXXXXXXX-X号</p>
-            <p>《网络文化经营许可证》 京网文[2015]XXXXXXXX号 京公网安备XXXXXXXXX号</p>
-            <p>XXXXXXX科技有限公司</p>
+            <p>抵制不良游戏，拒绝盗版游戏</p>
+            <p>注意自我保护，谨防受骗上当,本公司游戏产品适合18岁以上成年人使用</p>
+            <p>成都阿古朵八项科技有限公司 地址：中国（四川）自由贸易试验区成都高新区蜀锦路88号1栋2单元24层05室</p>
+            <p>《网络文化经营许可证》 川网文XXXXXXXXX | 川ICP备XXXXXXXX</p>
+            <div className="font-14 text-center flex-row flex-jst-center flex-ali-center">
+              <img src="/images/police_ba.png" alt="" class="ma-rt-02" />
+              <span className="font-16">xxxxxxxxx</span>
+            </div>
           </div>
         </div>
       </div>
