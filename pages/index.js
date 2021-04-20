@@ -25,8 +25,7 @@ export default function Home({ info, newsList, ...props }) {
   }
   const mediaList = [
     { icon: 'icon-weixin', src: '/images/qrcode.png' },
-    { icon: 'icon-qq-circle', src: '/images/qrcode.png', openLink: true },
-    { icon: 'icon-weibo', src: '/images/qrcode.png' }
+    { icon: 'icon-qq-circle', src: '/images/qrcode.png', openLink: true }
   ]
   const linkList = [
     {
