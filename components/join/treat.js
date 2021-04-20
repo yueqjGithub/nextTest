@@ -6,7 +6,7 @@ const Treat = props => {
     { icon: 'icon-rili', title: '上班时间', sub: 'OFFICE HOURS', content: '早10晚7工作制，完美避开上下班高峰时期' },
     { icon: 'icon-huodong', title: '团建活动', sub: 'TEAM BUILDING', content: '进了门，我们就是一家人，一同团建去旅行' },
     { icon: 'icon-yingxiaoguanhuai', title: '节庆关怀', sub: 'FESTIVAL GIFT', content: '传统节假日会有高标准的节日礼金或礼物' },
-    { icon: 'icon-liwu', title: '加班福利', sub: 'OVERTIME BENEFITS', content: '让你的每一分付出都可 以得到收获' },
+    { icon: 'icon-liwu', title: '加班福利', sub: 'OVERTIME BENEFITS', content: '让你的每一分付出都可以得到收获' },
     { icon: 'icon-_jiatingguanxi', title: '和谐氛围', sub: 'ATMOSPHERE', content: '像在家一般温暖' },
     { icon: 'icon-Coffeecupfood', title: '下午茶', sub: 'HIGH TEA', content: '劳累一整天补充能量' },
     { icon: 'icon-qianbao', title: '绩效奖金', sub: 'PERFORMANCE BONUS', content: '优秀的你值得更多报酬' },
