@@ -59,7 +59,7 @@ export default function MainLayout(props) {
             <p>成都阿古朵八项科技有限公司 地址：中国（四川）自由贸易试验区成都高新区蜀锦路88号1栋2单元24层05室</p>
             <p>《网络文化经营许可证》 川网文XXXXXXXXX | 川ICP备XXXXXXXX</p>
             <div className="font-14 text-center flex-row flex-jst-center flex-ali-center">
-              <img src="/images/police_ba.png" alt="" class="ma-rt-02" />
+              <img src="/images/police_ba.png" alt="" className="ma-rt-02" />
               <span className="font-16">xxxxxxxxx</span>
             </div>
           </div>
