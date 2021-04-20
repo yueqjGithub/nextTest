@@ -30,7 +30,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
           </div>
           <div className={['flex-row', 'flex-wrap', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
             {
-              [...gameList].reverse().map((item, idx) => {
+              gameList.map((item, idx) => {
                 return (
                   <div className={[styles.gameItem, 'flex-col', 'flex-jst-btw', 'flex-ali-center'].join(' ')} key={item.id}>
                     <img src={item.poster} alt="" className={['full-width', styles.gamePost].join(' ')} />
@@ -58,7 +58,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
           </div>
           <div className='full-width'>
             {
-              [...gameList].reverse().filter(game => game.is_publish).map((item, idx) => {
+              gameList.filter(game => game.is_publish).map((item, idx) => {
                 return (
                   <Link href='/gameCenter' key={idx}>
                     <div className={[styles.packageItem, 'flex-row', 'flex-jst-btw', 'flex-ali-center'].join(' ')}>

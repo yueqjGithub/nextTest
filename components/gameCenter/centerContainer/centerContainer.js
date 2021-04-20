@@ -27,7 +27,7 @@ export default function CenterContainer({ gameList, packages, ...props }) {
       </div>
       <div className={['flex-row', 'flex-wrap', 'flex-jst-start', 'flex-ali-start', styles.gameList].join(' ')}>
         {
-          [...gameList].reverse().map((item, idx) => {
+          gameList.map((item, idx) => {
             return (
               <div className={[styles.gameItem, 'flex-col', 'cursor-pointer', 'flex-jst-btw', 'flex-ali-center', (idx % 3) === 1 ? styles.gameItemCenter : ''].join(' ')} key={item.id}>
                 <div className={['full-width', styles.gamePost].join(' ')}>
