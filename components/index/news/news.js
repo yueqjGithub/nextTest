@@ -38,7 +38,7 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
       <div className={[styles.leftCont, 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>
         <div className={styles.pin} style={{top: `calc(${linkPosition}%  - .1rem)`}}></div>
         {
-          gameList.map((item, idx) => {
+          [...gameList].reverse().map((item, idx) => {
             return (
               <div className={[styles.leftItem, 'flex-row', 'full-width', 'flex-jst-start', 'flex-ali-center', 'cursor-pointer', idx === cur ? styles.curLeft: ''].join(' ')} key={idx}
               onClick={() => toGameCenter()}

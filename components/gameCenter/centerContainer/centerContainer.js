@@ -27,7 +27,7 @@ export default function CenterContainer({ gameList, packages, ...props }) {
       </div>
       <div className={['flex-row', 'flex-wrap', 'flex-jst-start', 'flex-ali-start', styles.gameList].join(' ')}>
         {
-          gameList.map((item, idx) => {
+          [...gameList].reverse().map((item, idx) => {
             return (
               <div className={[styles.gameItem, 'flex-col', 'cursor-pointer', 'flex-jst-btw', 'flex-ali-center', (idx % 3) === 1 ? styles.gameItemCenter : ''].join(' ')} key={item.id}>
                 <div className={['full-width', styles.gamePost].join(' ')}>
@@ -83,7 +83,7 @@ export default function CenterContainer({ gameList, packages, ...props }) {
                 <div className={['flex-row', 'flex-jst-start', 'flex-ali-center'].join(' ')}>
                   <div className={[styles.codeContainer, 'flex-col', 'flex-jst-center', 'flex-ali-center', 'ma-rt-2'].join(' ')}>
                     <QRCode
-                      value={`${urls.downloadPage}?id=${curPackage.id}`}
+                      value={curPackage.download_link}
                       level='H'
                       size={120} // 二维码的大小
                       fgColor="#333333" // 二维码的颜色

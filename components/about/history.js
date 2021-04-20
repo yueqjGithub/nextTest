@@ -4,8 +4,8 @@ import HisItem from './hisItem'
 export default function History(props) {
   const hisList = [
     { year: '至今', word: '目前有多款游戏产品上线', img: '/images/about/his-pic.png' },
-    { year: '2021年3月', word: '阿古朵广州分公司成立', img: '/images/about/his-pic.png' },
-    { year: '2020年2月', word: '成都阿古朵七象科技有限公司成立', img: '/images/about/his-pic.png' },
+    { year: '2021年3月', word: '阿古朵八项广州分公司成立', img: '/images/about/his-pic.png' },
+    { year: '2020年2月', word: '成都阿古朵八项科技有限公司成立', img: '/images/about/his-pic.png' },
     { year: '2019年12月', word: '成都阿古朵八项科技有限公司成立，致力于游戏研发', img: '/images/about/his-pic.png' },
     { year: '2018年', word: '北京应用互联有限公司 后更名为：成都阿古朵八项科技有限公司北京分公司', img: '/images/about/his-pic.png' },
     { year: '2015年9月', word: '四川佐耳科技有限公司成立', img: '/images/about/his-pic.png' },
