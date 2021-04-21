@@ -8,9 +8,9 @@ import useRouter from 'next/router'
 export default function CenterContainer({ gameList, packageList, newsList, ...props }) {
   const router = useRouter
   const actList = [
-    '/images/actBg1.png?v=1',
-    '/images/actBg2.png?v=1',
-    '/images/actBg3.png?v=1'
+    '/images/actBg1.png?v=2',
+    '/images/actBg2.png?v=2',
+    '/images/actBg3.png?v=3'
   ]
   const newsDetailHandler = (id) => {
     router.push({
