@@ -17,7 +17,7 @@ export default function ActiveModule(props) {
     { img: '/images/activePic.png', title: '上线即送好礼', description: '全平台上线，狂刷VIP' }
   ]
   const activeSingle = [
-    { img: '/images/actPic1.png?v=2', title: '至尊传奇', description: '全平台上线，狂刷装备' },
+    { img: '/images/actPic1.png?v=3', title: '仙道独尊', description: '全平台上线，狂刷装备' },
     { img: '/images/actPic2.png?v=2', title: '女武神降临', description: '全平台上线，狂刷装备' }
   ]
   useEffect(() => {
@@ -82,8 +82,8 @@ export default function ActiveModule(props) {
         </div>
       </div>
       <div className={['flex-1', 'self-stretch', 'full-width', 'flex-col', 'flex-jst-start', 'flex-ali-center', styles.rightCont, styles.activeModal, inView ? 'cus-fade-in' : ''].join(' ')}>
-        <img src='/images/1_41.png?v=2' alt=""/>
-        <p className={styles.title}>龙城霸业</p>
+        <img src='/images/1_41.png?v=3' alt=""/>
+        <p className={styles.title}>龙城凯歌</p>
         <p className={[styles.actDes, inView ? styles.actDesAni : ''].join(' ')}>
           惊世人杰，重振山河！
         </p>
