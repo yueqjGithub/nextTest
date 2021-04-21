@@ -82,7 +82,7 @@ export default function ActiveModule(props) {
         </div>
       </div>
       <div className={['flex-1', 'self-stretch', 'full-width', 'flex-col', 'flex-jst-start', 'flex-ali-center', styles.rightCont, styles.activeModal, inView ? 'cus-fade-in' : ''].join(' ')}>
-        <img src='/images/1_41.png' alt=""/>
+        <img src='/images/1_41.png?v=2' alt=""/>
         <p className={styles.title}>龙城霸业</p>
         <p className={[styles.actDes, inView ? styles.actDesAni : ''].join(' ')}>
           惊世人杰，重振山河！
