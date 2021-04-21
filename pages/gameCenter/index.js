@@ -75,7 +75,7 @@ export default function gameCenter({ info, ...props }) {
 export async function getStaticProps(context) {
   const { data } = await httpGet(urls.queryIndex)
   data.packages.forEach(item => {
-    item.gameName = data.games.list.find(ele => ele.id === item.game_id).name
+    item.gameName = data.games.list.find(ele => ele.id === item.game_id) ? data.games.list.find(ele => ele.id === item.game_id).name : ''
   })
   return {
     props: {
