@@ -50,7 +50,7 @@ export default function CenterContainer({ gameList, packages, ...props }) {
                     </div>
                     <div className={['self-stretch', 'flex-col', 'flex-jst-ard', 'flex-ali-start'].join(' ')}>
                       <p className='text-white font-16 font-bold'>扫码下载：{item.name}</p>
-                      <p className='text-white font-16 font-bold'>{item.subtitle}</p>
+                      {/* <p className='text-white font-16 font-bold'>{item.subtitle.length > 15 ? `${filterNewsContent(item.subtitle, 15)}...` : item.subtitle}</p> */}
                       <div className={styles.cusButton} onClick={() => setCurGame(item)}>了解更多{' >'}</div>
                     </div>
                   </div>
