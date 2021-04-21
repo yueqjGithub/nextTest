@@ -17,8 +17,8 @@ export default function ActiveModule(props) {
     { img: '/images/activePic.png', title: '上线即送好礼', description: '全平台上线，狂刷VIP' }
   ]
   const activeSingle = [
-    { img: '/images/actPic1.png', title: '至尊传奇', description: '全平台上线，狂刷装备' },
-    { img: '/images/actPic2.png', title: '女武神降临', description: '全平台上线，狂刷装备' }
+    { img: '/images/actPic1.png?v=2', title: '至尊传奇', description: '全平台上线，狂刷装备' },
+    { img: '/images/actPic2.png?v=2', title: '女武神降临', description: '全平台上线，狂刷装备' }
   ]
   useEffect(() => {
     const interval = setInterval(() => {
