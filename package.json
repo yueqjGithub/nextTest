@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "build:test": "cross-env CUSTOM_ENV=TEST_ENV next build && next export",
+    "build:test": "cross-env CUSTOM_ENV=PROD_ENV next build && next export",
     "build:prod": "cross-env CUSTOM_ENV=PROD_ENV next build && next export"
   },
   "dependencies": {
