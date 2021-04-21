@@ -10,7 +10,7 @@ export default function Calture(props) {
       愿景：成为行业的标杆和方向标。
       </p>
       <p className={styles.partP}>
-      使命：让用户在游戏中收货快乐，让员工在快乐工作中实现梦想。
+      使命：让用户在游戏中收获快乐，让员工在快乐工作中实现梦想。
       </p>
       <p className={styles.partP}>
       价值观：团结、诚实、学习、创新。
