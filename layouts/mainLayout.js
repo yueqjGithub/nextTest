@@ -22,6 +22,9 @@ export default function MainLayout(props) {
   const OPEN_BA_ICP = () => {
     window.open('https://beian.miit.gov.cn/#/Integrated/index')
   }
+  const TO_INDEX = () => {
+    router.push({ pathname: '/' })
+  }
   useEffect(() => {
     window.addEventListener('scroll', scrollHandler)
     return () => {
@@ -35,7 +38,7 @@ export default function MainLayout(props) {
         style={{ opacity: showTop > 91 ? 0 : 1 - (showTop / 91) }}
       >
         <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', styles.barContainer].join(' ')}>
-          <img src='/images/logo.png' style={{width: '18%'}}></img>
+          <img src='/images/logo.png' style={{width: '18%'}} onClick={() => TO_INDEX()} className='cursor-pointer'></img>
           <div className={['flex-row', 'flex-jst-btw', 'flex-ali-center', 'flex-nowrap', styles.menuList].join(' ')}>
             {router.pathname === '/' ?
             <a href='/' className={[styles.activePath, styles.menuItem, 'title-font'].join(' ')}>首页</a> :

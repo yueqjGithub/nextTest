@@ -17,8 +17,8 @@ export default function ActiveModule(props) {
     { img: '/images/activePic.png', title: '上线即送好礼', description: '全平台上线，狂刷VIP' }
   ]
   const activeSingle = [
-    { img: '/images/actPic1.png', title: '屠龙圣域', description: '全平台上线，狂刷装备' },
-    { img: '/images/actPic2.png', title: '神龙猎手', description: '全平台上线，狂刷装备' }
+    { img: '/images/actPic1.png', title: '至尊传奇', description: '全平台上线，狂刷装备' },
+    { img: '/images/actPic2.png', title: '女武神降临', description: '全平台上线，狂刷装备' }
   ]
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,7 +83,7 @@ export default function ActiveModule(props) {
       </div>
       <div className={['flex-1', 'self-stretch', 'full-width', 'flex-col', 'flex-jst-start', 'flex-ali-center', styles.rightCont, styles.activeModal, inView ? 'cus-fade-in' : ''].join(' ')}>
         <img src='/images/1_41.png' alt=""/>
-        <p className={styles.title}>最强王者</p>
+        <p className={styles.title}>龙城霸业</p>
         <p className={[styles.actDes, inView ? styles.actDesAni : ''].join(' ')}>
           惊世人杰，重振山河！
         </p>

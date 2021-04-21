@@ -46,7 +46,7 @@ const NewsModule = ({ gameList, newsList, ...props }) => {
               >
                 <img src={item.logo} alt="" className={styles.logos}/>
                 <div className={['flex-col', 'flex-jst-ard', 'flex-ali-start', 'self-stretch', styles.introCont].join(' ')}>
-                  <p className={styles.gameName}>{item.name}</p>
+                  <p className={[styles.gameName, 'ellipis'].join(' ')}>{item.name}</p>
                   <p className={[styles.gameIntro, 'ellipis'].join(' ')}>{item.subtitle}</p>
                 </div>
               </div>

@@ -38,12 +38,14 @@
         }
         .gamePost{
           display: block;
-          height: 8vw;
+          height: 8.3vw;
           transition: all .2s linear;
         }
         .gameName{
           margin: .08rem auto .01rem auto;
-          font-size: .22rem;
+          font-size: .15rem;
+          height: .37rem;
+          text-align: center;
         }
         .gameIntro{
           text-align: center;
@@ -107,7 +109,9 @@
           margin-right: .18rem;
         }
         .pName{
-          font-size: .16rem;
+          font-size: .15rem;
+          max-width: 1.2rem;
+          overflow: hidden;
           color: #5d565e;
           text-overflow: ellipsis;
           white-space: nowrap;
