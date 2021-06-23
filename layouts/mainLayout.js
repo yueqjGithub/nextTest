@@ -65,14 +65,14 @@ export default function MainLayout(props) {
           <div className='flex-col flex-jst-start flex-ali-end font-16 text-light-grey'>
             <p>抵制不良游戏，拒绝盗版游戏</p>
             <p>注意自我保护，谨防受骗上当</p>
-            <p>成都阿古朵八项科技有限公司 地址：中国（四川）自由贸易试验区成都高新区蜀锦路88号1栋2单元24层05室</p>
-            <p>中华人民共和国增值电信业务经营许可证 经营许可证编号：川B2-20200087</p>
             <p>网络文化经营许可证信息：川网文 [2019] 3822-233号</p>
+            <p>中华人民共和国增值电信业务经营许可证 经营许可证编号：川B2-20200087</p>
+            <p>地址：中国（四川）自由贸易试验区成都高新区蜀锦路88号1栋2单元24层05室</p>
             <p className='cursor-pointer'  onClick={() => OPEN_BA_ICP()}>蜀ICP备20016559号-9</p>
-            <div className="font-14 text-center flex-row flex-jst-center flex-ali-center cursor-pointer" onClick={() => OPEN_BA_POL()}>
+            <p className="font-14 text-center flex-row flex-jst-center flex-ali-center cursor-pointer" onClick={() => OPEN_BA_POL()}>
               <img src="/images/police_ba.png" alt="" className="ma-rt-02" />
               <span className="font-16">川公网安备 51019002003526号</span>
-            </div>
+            </p>
           </div>
         </div>
       </div>
