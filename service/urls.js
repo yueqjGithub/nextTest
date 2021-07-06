@@ -1,7 +1,7 @@
 const mockUrl = 'https://www.fastmock.site/mock/c4a9191b46d02bfc455e710d4f53419e/api/gameDateManage'
-let baseUrl = 'https://webapi.8xgame.cn'
+// let baseUrl = 'http://wwwadminapi.agdgame.cn'
 const downloadPage = 'https://test.sdk.chaoyi.cn'
-// let baseUrl = 'http://webapi.8xgame.cn'
+let baseUrl = 'http://webapi.8xgame.cn'
 // const baseUrl = '/gameDateManage'
 
 if( process.env.CUSTOM_ENV === 'PROD_ENV' ) {
