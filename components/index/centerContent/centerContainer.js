@@ -90,7 +90,7 @@ export default function CenterContainer({ gameList, packageList, newsList, ...pr
             <div className={[styles.titName, 'title-font'].join(' ')}>热门活动</div>
           </div>
           <div className='full-width'>
-            <ActiveModule></ActiveModule>
+            <ActiveModule gameList={gameList.filter(item => item.is_hot)}></ActiveModule>
           </div>
         </div>
         <div className={[styles.twoRight, 'flex-1', 'self-stretch', 'flex-col', 'flex-jst-start', 'flex-ali-start'].join(' ')}>

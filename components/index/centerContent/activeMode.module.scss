@@ -57,10 +57,12 @@
       width: 60%;
     }
     p{
-      font-size: .2rem;
+      font-size: .16rem;
       font-weight: bold;
       color: #3c4043;
-      margin: 0 0 .1rem 0;
+      margin: 0 0 .2rem 0;
+      height: .3rem;
+      text-align: center;
     }
     span{
       font-size: .14rem;
@@ -82,7 +84,9 @@
       width: 40%;
     }
     .title{
-      font-size: .2rem;
+      font-size: .16rem;
+      max-width: 40%;
+      text-align: center;
       font-weight: bold;
       color: #3c4043;
     }

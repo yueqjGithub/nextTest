@@ -1,8 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
 import useInView from 'react-cool-inview'
 import styles from './activeMode.module.scss'
 
-export default function ActiveModule(props) {
+export default function ActiveModule({ gameList, ...props }) {
   const { ref, inView } = useInView({
     // Stop observe when the target enters the viewport, so the "inView" only triggered once
     unobserveOnEnter: true,
@@ -16,10 +16,23 @@ export default function ActiveModule(props) {
     { img: '/images/activePic.png', title: '上线即送好礼', description: '全平台上线，狂刷元宝' },
     { img: '/images/activePic.png', title: '上线即送好礼', description: '全平台上线，狂刷VIP' }
   ]
-  const activeSingle = [
-    { img: '/images/actPic1.png?v=3', title: '仙道独尊', description: '全平台上线，狂刷装备' },
-    { img: '/images/actPic2.png?v=2', title: '女武神降临', description: '全平台上线，狂刷装备' }
-  ]
+  // const activeSingle = [
+  //   { img: '/images/actPic1.png?v=3', title: '仙道独尊', description: '全平台上线，狂刷装备' },
+  //   { img: '/images/actPic2.png?v=2', title: '女武神降临', description: '全平台上线，狂刷装备' }
+  // ]
+  const activeSingle = useMemo(() => {
+    const target = [gameList[1], gameList[2]]
+    return target.map(item => {
+      return {
+        img: item.logo,
+        title: item.name,
+        description: item.subtitle.substr(0, 10)
+      }
+    })
+  }, [gameList])
+  const colTarget = useMemo(() => {
+    return gameList[0]
+  }, [gameList])
   useEffect(() => {
     const interval = setInterval(() => {
       if (cur < (activeList.length - 1)) {
@@ -74,7 +87,7 @@ export default function ActiveModule(props) {
                 <div className={[styles.activeModal, styles.actSingle, 'flex-col', 'flex-jst-center', 'flex-ali-center', inView ? styles.upAni : ''].join(' ')} key={idx}>
                   <img src={item.img} alt="" />
                   <p>{item.title}</p>
-                  <span>{item.description}</span>
+                  <span className='ellipis'>{item.description}</span>
                 </div>
               )
             })
@@ -82,8 +95,8 @@ export default function ActiveModule(props) {
         </div>
       </div>
       <div className={['flex-1', 'self-stretch', 'full-width', 'flex-col', 'flex-jst-start', 'flex-ali-center', styles.rightCont, styles.activeModal, inView ? 'cus-fade-in' : ''].join(' ')}>
-        <img src='/images/1_41.jpeg?v=3' alt=""/>
-        <p className={styles.title}>女武神战记</p>
+        <img src={colTarget.logo} alt=""/>
+        <p className={styles.title}>{colTarget.name}</p>
         <p className={[styles.actDes, inView ? styles.actDesAni : ''].join(' ')}>
           惊世人杰，重振山河！
         </p>
